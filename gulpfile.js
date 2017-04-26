@@ -20,10 +20,12 @@ gulp.task('sass', function () {
 gulp.task('browser-sync', ['sass'], function() {
 
     browserSync.init({
-        server: "./"
+        browser: "chrome",
+        proxy: "http://localhost:8888/php-ninjas"
+        
     });
 
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch("./*.php").on('change', browserSync.reload);
 
 });

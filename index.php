@@ -5,7 +5,9 @@
 	<title>PHP BLOG</title>
 </head>
 <body>
-<div class="navbar"></div>
+<div class="navbar">
+	<h1>HEJ</h1>
+</div>
 
 </body>
 </html>
