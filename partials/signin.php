@@ -11,7 +11,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	$password = $_POST["password"];
 
 	// var_dump($_POST["password"]);
-	// $hash = password_hash($password, PASSWORD_DEFAULT);
 
 	$statement = $pdo->prepare("SELECT * FROM user WHERE username = :username
 		");
@@ -23,10 +22,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 		);
 
 	$data = $statement->fetch(PDO::FETCH_ASSOC);
-
+ var_dump($data);
 	if ($data > 0){
-
-		if(password_verify($password, $data[0]['password'])){
+// $hej = '$2y$10$IQ9Run9r254CoSsZLr8SIuHqMrO/JvTCtlD1uu0hwM.';
+	var_dump($password, $data[0]['password']){
+			echo "password verify";
 
 			$_SESSION["username"]= $username ;
 			$_SESSION["password"]= $password ;
@@ -35,7 +35,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 		else{
 			echo "Fel användarnamn eller password, försök igen!"; 
-			header("Location: ../index.php");
+			// header("Location: ../index.php");
 		}
 	}
 

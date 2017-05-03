@@ -17,4 +17,5 @@ $statement->execute([
   ":lastname" => $_POST['lastname']
 ]);
 
+
 header('Location: /php-ninjas');
