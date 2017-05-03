@@ -3,14 +3,14 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
-	<title>PHP BLOG</title>
+	<title>PHP NINJABLOG</title>
 </head>
 <body>
 	<?php
 
 	include "partials/error.php";
 	include "partials/database.php";
-    //include "partials/showpost.php";
+    include "partials/showpost.php";
 
 //echo "TEST";
 	?>
@@ -19,13 +19,9 @@ include "partials/navbar.php";
 	?>
 <main class="container-fluid con">
 	<div class="row">
-		<div class="col-md-6">
-			<h1>HELLO!</h1>
-			<h1>WELCOME TO THE NINJABLOG PORTAL</h1>
-			<h1>PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h1>
-			<h1>ENJOY YOUR STAY!</h1>
-		</div>
+		
 		<?php
+		include "partials/welcometext.php";
 		include "partials/signup.php";
 		?>
 		</div> <!-- ROW -->
