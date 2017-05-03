@@ -39,9 +39,8 @@ foreach ($posts as $row) {
 			<div class='card-block'>
 				<h4 class='card-title'>$title</h4>
 				<h5 class='card-subtitle text-muted'><img class='img-fluid' src='$img'></h5>
-
 				<p class='card-text' style='font-style: italic;'> $blogText </p>
-				<h3 class='card-subtitle text-muted'>Date Made and Likes</h3>
+				<h5 class='card-subtitle text-muted'>Date Made and Likes</h5>
 				<hr class='muted'>
 				$username
 				$postDate

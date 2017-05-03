@@ -17,11 +17,12 @@
 			<li class="nav-item">
 				<a class="nav-link" href="partials/signup.php">DONT SIGN UP</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="partials/contact.php">Contact</a>
+			</li>
 		</div>
 
-		<li class="nav-item">
-			<a class="nav-link" href="partials/contact.php">Contact</a>
-		</li>
+
 	</ul>
 </div>
 </nav>

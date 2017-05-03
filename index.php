@@ -10,7 +10,7 @@
 
 	include "partials/error.php";
 	include "partials/database.php";
-    include "partials/showpost.php";
+    //include "partials/showpost.php";
 
 //echo "TEST";
 	?>
@@ -25,6 +25,13 @@ include "partials/navbar.php";
 		include "partials/signup.php";
 		?>
 		</div> <!-- ROW -->
+		<div class="row">
+			<section class="col-md-6 ml-auto mr-auto">
+			<?php
+				include "partials/showpost.php";
+				?>
+			</section>
+		</div>
 	</main>
 
 
