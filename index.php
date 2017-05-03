@@ -3,91 +3,37 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
-	<title>PHP BLOG</title>
+	<title>PHP NINJABLOG</title>
 </head>
 <body>
 	<?php
 
 	include "partials/error.php";
 	include "partials/database.php";
-//include "partials/showpost.php";
+    //include "partials/showpost.php";
 
 //echo "TEST";
 	?>
-	<nav class="myNav navbar navbar-toggleable-md navbar-inverse bg-inverse">
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand" href="#">PHP-Ninja Blog</a>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<!-- <li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li> -->
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="#">Login</a>
-				</li> -->
-				
-				<?php include "partials/signin-view.php";?>
-				<li class="nav-item">
-					<a class="nav-link" href="partials/form.php">FORM</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="partials/signup.php">SIGN UP</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="partials/contact.php">Contact</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<main class="container-fluid con">
-		<div class="row">
-			<div class="col-md-6">
-				<h1>HELLO!</h1>
-				<h1>WELCOME TO THE PHP-NINJABLOG PORTAL</h1>
-				<h1>PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h1>
-				<h1>ENJOY YOUR STAY!</h1>
-			</div>
-			<div class="col-md-6">
-				<section class=" con-signup">
-					<form action="register.php" method="POST">
-						<div class="form-group">
-							<label for="username">Username</label>
-							<input name="username" type="text" class="form-control" id="username" placeholder="">
+	<?php
+include "partials/navbar.php";
+	?>
+<main class="container-fluid con">
+	<div class="row">
+		
+		<?php
+		include "partials/welcometext.php";
+		include "partials/signup.php";
+		?>
 
-						</div>
-						<div class="form-group">
-							<label for="password">Password</label>
-							<input name="password" type="password" class="form-control" id="password" placeholder="">
-
-						</div>
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input name="email" type="email" class="form-control" id="email" placeholder="">
-
-						</div>
-						<div class="form-group">
-							<label for="firstname">Firstname</label>
-							<input name="firstname" type="text" class="form-control" id="firstname" placeholder="">
-
-						</div>
-						<div class="form-group">
-							<label for="firstname">Lastname</label>
-							<input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
-
-						</div>
-						<div class="form-group">
-							<label for="lastname">Phone</label>
-							<input name="phone" type="number" class="form-control" id="lastname" placeholder="">
-						</div>
-
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
-				</section>
-			</div>
 		</div> <!-- ROW -->
+		<div class="row">
+			<section class="col-md-6 ml-auto mr-auto">
+			<?php
+				include "partials/showpost.php";
+				?>
+			</section>
+		</div>
 	</main>
 
 

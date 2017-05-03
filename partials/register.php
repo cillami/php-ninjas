@@ -4,8 +4,8 @@ include "database.php";
 
 
 $statement = $pdo->prepare("
-  INSERT INTO user (username, password, email, firstname, lastname, phone)
-  VALUES (:username, :password, :email, :firstname, :lastname, :phone)");
+  INSERT INTO user (username, password, email, firstname, lastname)
+  VALUES (:username, :password, :email, :firstname, :lastname)");
 
 //Execute statement, fetch data
 $statement->execute([
@@ -13,12 +13,7 @@ $statement->execute([
   ":password" => $_POST['password'],
   ":email" => $_POST['email'],
   ":firstname" => $_POST['firstname'],
-  ":lastname" => $_POST['lastname'],
-  ":phone" => $_POST['phone']
+  ":lastname" => $_POST['lastname']
 ]);
 
 header('Location: /php-ninjas');
-?>
-
-
-?>
