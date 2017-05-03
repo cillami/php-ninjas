@@ -2,6 +2,7 @@
 include "error.php";
 include "database.php";
 
+$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); 
 
 $statement = $pdo->prepare("
   INSERT INTO user (username, password, email, firstname, lastname)
@@ -10,7 +11,7 @@ $statement = $pdo->prepare("
 //Execute statement, fetch data
 $statement->execute([
   ":username" => $_POST['username'],
-  ":password" => $_POST['password'],
+  ":password" => $hash,
   ":email" => $_POST['email'],
   ":firstname" => $_POST['firstname'],
   ":lastname" => $_POST['lastname']

@@ -1,8 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION["username"])) {
+
+$username = $_SESSION["username"];
+
+if (!isset($username)) {
 	header("location:../index.php");
 }
-echo "Welcome". "  " .$_SESSION["username"];
+echo "Welcome". "  " .$username;
 echo '<p align="center"> <a href="logout.php">LOGOUT</a> </p>';
 ?>
