@@ -1,6 +1,6 @@
 <?php
 include "error.php";
-
+//include "database.php";
 
 $statement = $pdo->prepare("SELECT * FROM post
 	INNER JOIN user 

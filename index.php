@@ -10,7 +10,7 @@
 
 	include "partials/error.php";
 	include "partials/database.php";
-//include "partials/showpost.php";
+    //include "partials/showpost.php";
 
 //echo "TEST";
 	?>
@@ -18,42 +18,38 @@
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#">PHP-Ninja Blog</a>
+		<a class="navbar-brand" href="#">Ninja Blog</a>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<!-- <li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li> -->
-				<!-- <li class="nav-item">
-					<a class="nav-link" href="#">Login</a>
-				</li> -->
 				<form class="form-inline">
 					<input name="username" class="form-control mr-sm-2" type="text" placeholder="Username">
 					<input name="password" class="form-control mr-sm-2" type="password" placeholder="Password">
 					<button class="btn btn-success my-2 my-sm-0" type="submit">Sign </button>
 				</form>
-				<li class="nav-item">
+			<!-- 	<li class="nav-item">
 					<a class="nav-link" href="partials/form.php">FORM</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
-					<a class="nav-link" href="partials/signup.php">SIGN UP</a>
+					<a class="nav-link" href="partials/signup.php">DONT SIGN UP</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="partials/contact.php">Contact</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<main class="container-fluid con">
-		<div class="row">
-			<div class="col-md-6">
-				<h1>HELLO!</h1>
-				<h1>WELCOME TO THE PHP-NINJABLOG PORTAL</h1>
-				<h1>PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h1>
-				<h1>ENJOY YOUR STAY!</h1>
 			</div>
-			<div class="col-md-6">
+
+			<li class="nav-item">
+				<a class="nav-link" href="partials/contact.php">Contact</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<main class="container-fluid con">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>HELLO!</h1>
+			<h1>WELCOME TO THE NINJABLOG PORTAL</h1>
+			<h1>PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h1>
+			<h1>ENJOY YOUR STAY!</h1>
+		</div>
+		<div class="col-md-6">
 				<section class=" con-signup">
 					<form action="register.php" method="POST">
 						<div class="form-group">
