@@ -10,9 +10,9 @@
 			<li class="nav-item">
 				<a class="nav-link" href="partials/form.php">FORM</a>
 			</li>
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 				<a class="nav-link" href="partials/signup.php">DONT SIGN UP</a>
-			</li>
+			</li> -->
 			<li class="nav-item">
 				<a class="nav-link" href="partials/contact.php">Contact</a>
 			</li>
