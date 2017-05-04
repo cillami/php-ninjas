@@ -3,8 +3,8 @@ include "error.php";
 //include "database.php";
 
 $statement = $pdo->prepare("SELECT * FROM post
-	INNER JOIN user 
-	ON post.id = user.userId
+	INNER JOIN users 
+	ON post.id = users.userId
 	");
 $statement->execute();
 
@@ -33,7 +33,7 @@ foreach ($posts as $row) {
 	/*echo "<tr> <td>$title</td> <td>$img</td> <td>$blogText</td> <td>$nrOfLikes</td> <td>$postDate</td></tr>";*/
 	echo
 	"
-	<div class='col-lg-3 col-md-10 col-sm-12'>
+	<div class='col-lg-12 col-md-12 col-sm-12'>
 		<div class='show card' '>
 
 			<div class='card-block'>
