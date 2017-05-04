@@ -2,7 +2,9 @@
 
 include "error.php";
 include "database.php";
+
 var_dump($_POST);
+
 $statement = $pdo->prepare("
   INSERT INTO post (title, img, blogText)
   VALUES (:title, :img, :blogText)");
@@ -14,5 +16,4 @@ $statement->execute([
   ":blogText" => $_POST['blogText']
 ]);
 
-header('Location: /php-ninjas');
-?>
+

@@ -5,57 +5,60 @@ include "database.php";
 
 class Users{
 
-  private $pdo;
+	private $pdo;
 
-  public function __construct($pdo)
-  {
-    $this->pdo = $pdo;
-  }
-
-
-public function signIn()
-{
-
-
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-
-
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-
-	$statement = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
-	
-
-	$statement->execute([":username" => $username]);
-	$data = $statement->fetch(PDO::FETCH_ASSOC);
-	
-	if ($data){
-		if (password_verify($password, $data['password'])) {
-			header("Location: /php-ninjas/partials/home.php");
-			echo 'Password is valid!';
-			$_SESSION["username"]= $username ;
-			/*$_SESSION["password"]= $password;*/
-		 
-		} 
-		else {
-			header("Location: ../index.php");
-			echo 'Invalid password.';
-
-		}
+	public function __construct($pdo)
+	{
+		$this->pdo = $pdo;
 	}
-}
 
-}// function end
+	public function signIn()
+	{
+
+
+		if (isset($_POST["username"]) && isset($_POST["password"])) {
+
+
+			$username = $_POST["username"];
+			$password = $_POST["password"];
+
+
+
+			$statement = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+
+
+			$statement->execute([":username" => $username]);
+			$data = $statement->fetch(PDO::FETCH_ASSOC);
+
+			if ($data){
+				if (password_verify($password, $data['password'])) {
+					header("Location: /php-ninjas/partials/home.php");
+					echo 'Password is valid!';
+					$_SESSION["username"]= $username ;
+					/*$_SESSION["password"]= $password;*/
+
+				} 
+				else {
+					header("Location: ../index.php");
+					echo 'Invalid password.';
+
+				}
+			}
+		}
+
+}// siginIn User function end
+
+	
+
+
+
+
+
 
 } // class end
 
 $user = new Users($pdo);
-
 $user->signIn();
-
-
-
-
 
 /*if (isset($_POST["username"]) && isset($_POST["password"])) {
 
@@ -89,5 +92,4 @@ $user->signIn();
 			// header("Location: ../index.php");
 		}
 	}
-
 }*/

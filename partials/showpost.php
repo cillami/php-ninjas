@@ -3,8 +3,8 @@ include "error.php";
 //include "database.php";
 
 $statement = $pdo->prepare("SELECT * FROM post
-	INNER JOIN user 
-	ON post.id = user.userId
+	INNER JOIN users 
+	ON post.id = users.userId
 	");
 $statement->execute();
 
