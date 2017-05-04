@@ -17,13 +17,13 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	
 	if ($data){
 		if (password_verify($password, $data['password'])) {
-			echo 'Password is valid!';
+			//echo 'Password is valid!';
 			$_SESSION["username"]= $username ;
 			/*$_SESSION["password"]= $password;*/
 			header("Location: /php-ninjas/partials/home.php");
 		} 
 		else {
-			echo 'Invalid password.';
+			//echo 'Invalid password.';
 			header("Location: ../index.php");
 		}
 	}
