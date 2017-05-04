@@ -7,9 +7,9 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto">
 			<?php include "partials/signin-view.php";?>
-			<li class="nav-item">
+<!-- 			<li class="nav-item">
 				<a class="nav-link" href="partials/form.php">FORM</a>
-			</li>
+			</li> -->
 			<!-- <li class="nav-item">
 				<a class="nav-link" href="partials/signup.php">DONT SIGN UP</a>
 			</li> -->

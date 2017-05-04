@@ -2,6 +2,7 @@
 	include "partials/header.php";
 	include "partials/error.php";
 	include "partials/database.php";
+	include "partials/post.php";
     //include "partials/showpost.php";
 
 //echo "TEST";
@@ -22,7 +23,8 @@ include "partials/navbar.php";
 		<div class="row">
 			<section class="col-md-6 ml-auto mr-auto">
 			<?php
-				include "partials/showpost.php";
+				$showPost = new Post($pdo);
+				echo $showPost->latestPost();
 				?>
 			</section>
 		</div>

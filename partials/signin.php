@@ -3,7 +3,7 @@ session_start();
 include "error.php";
 include "database.php";
 
-class Users{
+class SignIn{
 
 	private $pdo;
 
@@ -12,7 +12,7 @@ class Users{
 		$this->pdo = $pdo;
 	}
 
-	public function signIn()
+	public function signInUser()
 	{
 
 		if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -26,6 +26,7 @@ class Users{
 			$statement->execute([":username" => $username]);
 			$data = $statement->fetch(PDO::FETCH_ASSOC);
 			$_SESSION['isAdmin'] = $data['isAdmin'];
+			$_SESSION['userId'] = $data['userId'];
 
 			if ($data){
 
@@ -58,6 +59,6 @@ class Users{
 
 } // class end
 
-$user = new Users($pdo);
-$user->signIn();
+$signIn = new SignIn($pdo);
+$signIn->signInUser();
 ?>

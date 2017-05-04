@@ -11,10 +11,13 @@
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="partials/form.php">FORM</a>
+				<a class="nav-link" href="form.php">FORM</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="partials/contact.php">Contact</a>
+				<a class="nav-link" href="contact.php">Contact</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="logout.php">LOGOUT</a>
 			</li>
 		</div>
 
@@ -22,3 +25,5 @@
 	</ul>
 </div>
 </nav>
+
+ 

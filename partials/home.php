@@ -1,7 +1,10 @@
 <?php
 session_start();
 
+include 'error.php';
 include 'header.php';
+include 'database.php';
+include 'post.php'; // funkar ej
 
 $username = $_SESSION["username"];
 
@@ -16,7 +19,9 @@ if (!isset($username)) {
 		include 'userNavbar.php';
 }
 	echo "Welcome". "  " .$username;
-	echo '<p align="center"> <a href="logout.php">LOGOUT</a> </p>';
+
+	$showPost = new Post($pdo);
+	$showPost->showPost();
+
 
 include 'footer.php';
-?>

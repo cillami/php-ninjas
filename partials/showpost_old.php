@@ -4,7 +4,8 @@ include "error.php";
 
 $statement = $pdo->prepare("SELECT * FROM post
 	INNER JOIN users 
-	ON post.id = users.userId
+	ON post.id = users.userId 
+	ORDER BY postDate DESC
 	");
 $statement->execute();
 
@@ -38,8 +39,5 @@ foreach ($posts as $row) {
 	</div>
 	";
 }
-
-
-
 
 ?>
