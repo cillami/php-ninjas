@@ -25,17 +25,20 @@ class Users{
 
 			$statement->execute([":username" => $username]);
 			$data = $statement->fetch(PDO::FETCH_ASSOC);
+			$_SESSION['isAdmin'] = $data['isAdmin'];
 
 			if ($data){
 
 				if (password_verify($password, $data['password'])) {
-					echo 'Password is valid!';
+					// echo 'Password is valid!';
 					$_SESSION["username"]= $username ;
 					
 					if($data['isAdmin'] === 1){	
 						$_SESSION['username'] = $username;
-						echo " isAdmin";
+
+						// echo " isAdmin";
 						header("Location: /php-ninjas/partials/home.php"); //admin
+
 					}
 					else{
 						$_SESSION['username'] = $username;						
@@ -44,7 +47,7 @@ class Users{
 			} 
 
 			else {
-				echo 'Invalid password.';
+				// echo 'Invalid password.';
 				header("Location: ../index.php");
 
 			}
@@ -57,4 +60,4 @@ class Users{
 
 $user = new Users($pdo);
 $user->signIn();
-
+?>
