@@ -10,19 +10,6 @@ $statement->execute();
 
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-/*echo highlight_string("<?php\n\$data =\n" . var_export($posts, true) . ";\n?>");*/
-
-/*echo "<table>";
-echo "<tr> <th>Title</th> <th>img</th> <th>Text</th> <th>nrOfLikes</th> <th>Date</th></tr>";
-foreach ($posts as $row) {
-	$title = $row['title'];
-	$img = $row['img'];
-	$blogText = $row['blogText'];
-	$nrOfLikes = $row['nrOfLikes'];
-	$postDate = $row['postDate'];
-	echo "<tr> <td>$title</td> <td>$img</td> <td>$blogText</td> <td>$nrOfLikes</td> <td>$postDate</td></tr>";
-}
-echo "</table>";*/
 foreach ($posts as $row) {
 	$title = $row['title'];
 	$img = $row['img'];

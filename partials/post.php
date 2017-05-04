@@ -16,4 +16,4 @@ $statement->execute([
   ":blogText" => $_POST['blogText']
 ]);
 
-
+header('Location: ../index.php');
