@@ -3,13 +3,27 @@ session_start();
 include "error.php";
 include "database.php";
 
+class Users{
+
+  private $pdo;
+
+  public function __construct($pdo)
+  {
+    $this->pdo = $pdo;
+  }
+
+
+public function signIn()
+{
+
+
 if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 
-	$statement = $pdo->prepare("SELECT * FROM user WHERE username = :username");
+	$statement = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
 	
 
 	$statement->execute([":username" => $username]);
@@ -17,17 +31,31 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	
 	if ($data){
 		if (password_verify($password, $data['password'])) {
+			header("Location: /php-ninjas/partials/home.php");
 			echo 'Password is valid!';
 			$_SESSION["username"]= $username ;
 			/*$_SESSION["password"]= $password;*/
-			header("Location: /php-ninjas/partials/home.php");
+		 
 		} 
 		else {
-			echo 'Invalid password.';
 			header("Location: ../index.php");
+			echo 'Invalid password.';
+
 		}
 	}
 }
+
+}// function end
+
+} // class end
+
+$user = new Users($pdo);
+
+$user->signIn();
+
+
+
+
 
 /*if (isset($_POST["username"]) && isset($_POST["password"])) {
 
