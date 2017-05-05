@@ -4,7 +4,7 @@ session_start();
 include 'error.php';
 include 'header.php';
 include 'database.php';
-include 'post.php'; // funkar ej
+include 'post.php'; 
 
 $username = $_SESSION["username"];
 
