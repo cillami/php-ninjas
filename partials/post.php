@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include "error.php";
 include "database.php";
 
@@ -13,6 +13,7 @@ class Post{
 	}
 
 	public function createPost(){
+
 		$statement = $this->pdo->prepare("
 			INSERT INTO post (title, img, blogText, userId)
 			VALUES (:title, :img, :blogText, :userId)");
@@ -116,6 +117,3 @@ class Post{
 	} 
 
 } // method end
-
-// $addPost = new Post($pdo);
-// $addPost->addPost();
