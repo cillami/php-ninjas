@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6 col-sm-12">
         <section class="margin-t con-signup">
           <form action="partials/register.php" method="POST">
             <div class="form-group">

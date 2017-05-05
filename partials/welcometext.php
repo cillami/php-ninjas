@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6 col-sm-12">
 <section class="margin-t">
 		<h1>HELLO!</h1>
 		<h1>WELCOME TO THE NINJABLOG PORTAL</h1>
