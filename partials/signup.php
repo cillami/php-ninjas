@@ -1,6 +1,6 @@
 <div class="col-md-6 col-sm-12">
         <section class="margin-t con-signup">
-          <form action="partials/register.php" method="POST">
+          <form action="partials/createUser.php" method="POST">
             <div class="form-group">
               <label class="inputLabel" for="username">Username</label>
               <input name="username" type="text" class="form-control" id="username" placeholder="">

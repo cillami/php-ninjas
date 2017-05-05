@@ -13,6 +13,7 @@ class Post{
 	}
 
 	public function createPost(){
+
 		$statement = $this->pdo->prepare("
 			INSERT INTO post (title, img, blogText, userId)
 			VALUES (:title, :img, :blogText, :userId)");
@@ -175,6 +176,5 @@ echo "
 			</div>
 			";
 
-
-
         */
+
