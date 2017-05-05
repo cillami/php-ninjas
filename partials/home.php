@@ -2,9 +2,10 @@
 session_start();
 
 include 'error.php';
-include 'header.php';
 include 'database.php';
-include 'post.php'; 
+include 'post.php';  
+include 'header.php';
+ 
 
 $username = $_SESSION["username"];
 

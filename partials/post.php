@@ -52,28 +52,35 @@ class Post{
 			/*echo "<tr> <td>$title</td> <td>$img</td> <td>$blogText</td> <td>$nrOfLikes</td> <td>$postDate</td></tr>";*/
 			echo
 			"
-			<div class='col-lg-12 col-md-12 col-sm-12'>
-				<div class='show card' '>
-
+			<div class='col-md-4 col-sm-12'>
+				<div class='card'>
+					<img class='card-img-top' <img class='img-fluid' src='$img' alt='Card image cap'>
 					<div class='card-block'>
 						<h4 class='card-title'>$title</h4>
-						<h5 class='card-subtitle text-muted'><img class='img-fluid' src='$img'></h5>
-						<p class='card-text' style='font-style: italic;'> $blogText </p>
-						<h5 class='card-subtitle text-muted'>Date Made and Likes</h5>
-						<hr class='muted'>
-				$username
-						$postDate
-
-
+						<p class='card-text'>
+							$blogText
+						</p>
+						<p>
+							Made by: $username at: $postDate
+						</p>
+						<form>
+							<div class='form-group'>
+								<textarea name='comment' type='text' class='form-control'></textarea>
+								<br>
+								<a href='#' class='btn btn-primary'>Submit</a>
+							</div>
+						</form>
+						
 					</div>
 				</div>
 			</div>
 			";
+
 		}
 		
 	} //showPost end
 
-		public function latestPost(){
+	public function latestPost(){
 
 		$statement = $this->pdo->prepare("SELECT * FROM post
 			INNER JOIN users 
@@ -97,8 +104,33 @@ class Post{
 			/*echo "<tr> <td>$title</td> <td>$img</td> <td>$blogText</td> <td>$nrOfLikes</td> <td>$postDate</td></tr>";*/
 			echo
 			"
-			<div class='col-lg-12 col-md-12 col-sm-12'>
-				<div class='show card' '>
+			<div class='col-md-6 col-sm-12'>
+				<div class='card'>
+					<img class='card-img-top' <img class='img-fluid' src='$img' alt='Card image cap'>
+					<div class='card-block'>
+						<h4 class='card-title'>$title</h4>
+						<p class='card-text'>
+							$blogText
+						</p>
+						<p>
+							Made by: $username at: $postDate
+						</p>
+					</div>
+				</div>
+			</div>
+			";
+		}
+
+	} 
+
+} // class end
+
+
+/*
+ORIGINAL CARD USED FROM NOBEL PRIZE EXERCISE
+echo "
+	<div class='col-lg-6 col-md-6 col-sm-12'>
+				<div class='show card'>
 
 					<div class='card-block'>
 						<h4 class='card-title'>$title</h4>
@@ -111,9 +143,38 @@ class Post{
 					</div>
 				</div>
 			</div>
-			";
-		}
-		
-	} 
+        ";
 
-} // method end
+
+*/
+
+        /*
+        MODIFIED CARD THAT I CONSTRUCTED WITH A COMMENT FIELD AND BUTTON
+	echo
+			"
+			<div class='col-lg-6 col-md-6 col-sm-12'>
+				<div class='card'>
+					<img class='card-img-top' <img class='img-fluid' src='$img' alt='Card image cap'>
+					<div class='card-block'>
+						<h4 class='card-title'>$title</h4>
+						<p class='card-text'>
+							$blogText
+						</p>
+						<p>
+							Made by: $username at: $postDate
+						</p>
+						<form>
+							<div class='form-group'>
+								<textarea name='comment' type='text' class='form-control'></textarea>
+								<br>
+								<a href='#' class='btn btn-primary'>Submit</a>
+							</div>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+			";
+
+        */
+
