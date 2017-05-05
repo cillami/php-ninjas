@@ -9,28 +9,21 @@
 	?>
 
 	<?php
-include "partials/navbar.php";
+	include "partials/navbar.php";
 	?>
-<main class="container-fluid con">
-	<div class="row">
-		
-		<?php
-		include "partials/welcometext.php";
-		include "partials/signup.php";
-		?>
+	<main class="container-fluid con">
+		<div class="row">
+
+			<?php
+			include "partials/welcometext.php";
+			include"partials/latestPost.php";
+			include "partials/signup.php";
+			?>
 
 		</div> <!-- ROW -->
-		<div class="row">
-			<section class="col-md-6 ml-auto mr-auto">
-			<?php
-				$showPost = new Post($pdo);
-				echo $showPost->latestPost();
-				?>
-			</section>
-		</div>
 	</main>
 
 	<?php
-include "partials/footer.php";
+	include "partials/footer.php";
 	?>
 
