@@ -22,7 +22,7 @@ class Register{
 
 	}
 
-		public function alert($alert){
+	public function alert($alert){
 		echo '<script type="text/javascript">alert("' . $alert . '")</script>';
 	}
 
@@ -34,6 +34,11 @@ class Register{
 		{
 			$this->alert("Username already exists! Please try a new one.");
 			header("Location: /php-ninjas");
+			echo'<script>window.location="../";</script>';
+
+			// fetch('https://localhost:3000/php-ninjas/partials/alert.php')
+			// .then(data => data.text())
+			// .then(text => console.log(text));
 		}
 		else 
 		{
@@ -51,7 +56,7 @@ class Register{
 				":firstname" => $_POST['firstname'],
 				":lastname" => $_POST['lastname']
 				]);
-			header('Location: /php-ninjas');
+			echo'<script>window.location="../";</script>';
 		}
 
 } //end method

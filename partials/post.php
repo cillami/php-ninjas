@@ -54,7 +54,7 @@ class Post{
 			"
 			<div class='col-md-4 col-sm-12'>
 				<div class='card'>
-					<img class='card-img-top pt-15 img-fluid' src='$img' alt='Card image cap'>
+					<img class='card-img-top' <img class='img-fluid' src='$img' alt='Card image cap'>
 					<div class='card-block'>
 						<h4 class='card-title'>$title</h4>
 						<p class='card-text'>
@@ -63,12 +63,14 @@ class Post{
 						<p>
 							Made by: $username at: $postDate
 						</p>
-						<form action='createComment.php' method='POST'>
+						<form>
 							<div class='form-group'>
 								<textarea name='comment' type='text' class='form-control'></textarea>
+								<br>
+								<a href='#' class='btn btn-primary'>Submit</a>
 							</div>
 						</form>
-						<button type='submit' class='btn btn-primary'>Submit</button>
+						
 					</div>
 				</div>
 			</div>
@@ -102,9 +104,9 @@ class Post{
 			/*echo "<tr> <td>$title</td> <td>$img</td> <td>$blogText</td> <td>$nrOfLikes</td> <td>$postDate</td></tr>";*/
 			echo
 			"
-			<div class='col-md-10 col-sm-12 col-xs-12'>
-				<div class='card lPost'>
-					<img class='card-img-top pt-15 img-fluid' src='$img' alt='Card image cap'>
+			<div class='col-md-12 col-sm-12'>
+				<div class='card'>
+					<img class='card-img-top' <img class='img-fluid' src='$img' alt='Card image cap'>
 					<div class='card-block'>
 						<h4 class='card-title'>$title</h4>
 						<p class='card-text'>
