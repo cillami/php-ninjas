@@ -41,6 +41,7 @@ class Post{
 		$statement->execute();
 
 		$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
          return $posts;
 		
 	} //showPost end
