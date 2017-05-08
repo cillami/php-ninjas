@@ -13,17 +13,16 @@ class Comment {
 	}
 
 	public function createComment(){
-
 		$statement = $this->pdo->prepare("
-			INSERT INTO comments (comment, mentions, userId, postId)
-			VALUES (:comment, :mentions, :userId, :postId)");
+			INSERT INTO comments (comment, userId, postId)
+			VALUES (:comment, :userId, :postId)");
 
 //Execute statement, fetch data
 		$statement->execute([
+
 			":comment" => $_POST['comment'],
-			":mentions" => $_POST['mentions'],
 			":userId" => $_SESSION['userId'],
-			":postId" => $_SESSION['postId']
+			":postId" => $_POST['postId']
 			]);
 
 		header('Location: /php-ninjas/partials/home.php');

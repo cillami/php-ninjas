@@ -10,8 +10,6 @@ class Register{
 	{
 		$this->pdo = $pdo;
 	}
-
-
 	public function userInDb(){
 
 		$statement = $this->pdo->prepare("SELECT username FROM users 
@@ -56,7 +54,7 @@ class Register{
 			]);
 
 
-		header('Location: /php-ninjas');
+		header('Location: /php-ninjas'); //CHANGE TO FETCH
 } //end method
 
 } //end class

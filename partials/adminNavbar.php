@@ -11,13 +11,13 @@
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="form.php">FORM</a>
+				<a class="nav-link" href="form.php">Create Post</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="contact.php">Contact</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="logout.php">LOGOUT</a>
+				<a class="nav-link" href="logout.php">Logout</a>
 			</li>
 		</div>
 

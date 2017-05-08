@@ -1,10 +1,10 @@
 <?php
 session_start();
-
+include 'header.php';
 include 'error.php';
 include 'database.php';
 include 'post.php';  
-include 'header.php';
+
  
 
 $username = $_SESSION["username"];
@@ -20,9 +20,7 @@ if (!isset($username)) {
 		include 'userNavbar.php';
 }
 	echo "Welcome". "  " .$username;
-
-	$showPost = new Post($pdo);
-	$showPost->showPost();
+   include "showpostOnHtml.php";
 
 
 include 'footer.php';
