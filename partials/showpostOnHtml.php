@@ -25,9 +25,12 @@ foreach ($posts as $row) {
 				<p class='card-text'>
 					<?=$blogText ?>
 				</p>
-				<p>
+				<p class="card-text">
 					Made by: <?= $username ?> <?= $postDate ?>
 				</p>
+				<?php 
+				include "showComment.php";
+				?>
 				<form action='createComment.php' method='POST'>
 					<div class='form-group'>
 						<textarea name='comment' type='text' class='form-control'></textarea>
