@@ -59,6 +59,5 @@ class SignIn{
 
 } // class end
 
-$signIn = new SignIn($pdo);
-$signIn->signInUser();
+
 ?>

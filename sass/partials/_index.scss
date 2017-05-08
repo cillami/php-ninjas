@@ -12,7 +12,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-	background-color: lightcoral;
+	background-color: lightgrey;
 	font-family: "Roboto";
 }
 
@@ -33,7 +33,23 @@ body {
 }
 
 .inputLabel {
-	color:white;
+	color:black;
 }
 
+.latestPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.lPost {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.pt-15 {
+	padding-top: 15px !important;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+}
