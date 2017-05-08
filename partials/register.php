@@ -22,12 +22,18 @@ class Register{
 
 	}
 
+		public function alert($alert){
+		echo '<script type="text/javascript">alert("' . $alert . '")</script>';
+	}
+
 	public function createUser(){
 		// var_dump($user);
+		// include 'alert.php';
 
 		if($this->userInDb() == true)
 		{
-			echo "Username already exists!";
+			$this->alert("Username already exists! Please try a new one.");
+			header("Location: /php-ninjas");
 		}
 		else 
 		{
@@ -45,7 +51,7 @@ class Register{
 				":firstname" => $_POST['firstname'],
 				":lastname" => $_POST['lastname']
 				]);
-		header('Location: /php-ninjas');
+			header('Location: /php-ninjas');
 		}
 
 } //end method
