@@ -34,6 +34,7 @@ class Register{
 		{
 			$this->alert("Username already exists! Please try a new one.");
 			echo'<script>window.location="../";</script>';
+			// include 'index.php';
 
 		}
 		else 
