@@ -2,7 +2,5 @@
 
 echo 'Testar!';
 
-	// public function alert($alert){
-	// 	echo '<script type="text/javascript">alert("' . $alert . '")</script>';
-	// };
+//gör en include där texten ska visas
 
