@@ -2,8 +2,7 @@
 include "error.php";
 include "database.php";
 include "header.php";
-?>
-<?php 
+
 
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
@@ -16,6 +15,7 @@ foreach ($posts as $row) {
 	$postDate = $row['postDate'];
 	$username = $row['username'];
 	$postId = $row['id'];
+	//$comments = explode(";",$row['comments']);
 	?>
 	<div class='col-md-4 col-sm-12'>
 		<div class='card'>
@@ -44,7 +44,5 @@ foreach ($posts as $row) {
 	<?php
 }
 
-?>
-<?php
 include "footer.php";
 ?>
