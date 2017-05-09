@@ -1,4 +1,5 @@
 <?php
+//start_session();
 include "error.php";
 include "database.php";
 include "header.php";
@@ -6,6 +7,10 @@ include "header.php";
 
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
+
+// echo "<pre>";
+// 	print_r($posts);
+// 	echo "</pre>";
 
 foreach ($posts as $row) {
 	$title = $row['title'];
@@ -15,7 +20,11 @@ foreach ($posts as $row) {
 	$postDate = $row['postDate'];
 	$username = $row['username'];
 	$postId = $row['id'];
+	$userId = $row['userId'];
 	//$comments = explode(";",$row['comments']);
+	// echo "<pre>";
+	// print_r($userId);
+	// echo "</pre>";
 	?>
 	<div class='col-md-4 col-sm-12'>
 		<div class='card'>
@@ -29,7 +38,7 @@ foreach ($posts as $row) {
 					Made by: <?= $username ?> <?= $postDate ?>
 				</p>
 				<?php 
-				include "showComment.php";
+				// include "showComment.php";
 				?>
 				<form action='createComment.php' method='POST'>
 					<div class='form-group'>
@@ -37,16 +46,28 @@ foreach ($posts as $row) {
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<button type='submit' class='btn btn-primary'>Submit</button>
-				</form>	
-				<form action='editPostOnHtml.php' method='GET'>
-					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button type='submit' class='btn btn-primary'>Edit</button>
-				</form>
+				</form>	 
+ 
+				<?php 
+
+				if($_SESSION['userId'] === $userId){
+				?><a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+				<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<?php }
+					else if ($_SESSION['isAdmin']){
+						?>
+					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<?php }
+					?>
+
+
+
+				</div>
 			</div>
 		</div>
-	</div>
-	<?php
-}
+
+		<?php
+	}
 
 include "footer.php";
 ?>

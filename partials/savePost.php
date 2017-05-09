@@ -3,6 +3,5 @@ include "error.php";
 include "database.php";
 include "post.php";
 
-$createPost = new Post($pdo);
-$createPost->createPost();
-
+$savePost = new Post($pdo);
+$savePost->savePost();
