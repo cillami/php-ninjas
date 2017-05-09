@@ -34,8 +34,8 @@ class Post{
 	public function showPost(){
 
 		$statement = $this->pdo->prepare("SELECT * FROM post
-			INNER JOIN users 
-			ON post.userId = users.userId
+			INNER JOIN user 
+			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			");
 		$statement->execute();
@@ -49,12 +49,10 @@ class Post{
 	public function latestPost(){
 
 		$statement = $this->pdo->prepare("SELECT * FROM post
-			INNER JOIN users 
-			ON post.userId = users.userId
+			INNER JOIN user 
+			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			LIMIT 3 
-
-			
 			");
 		$statement->execute();
 
@@ -63,7 +61,18 @@ class Post{
 		return $posts;
 	} 
 
+	public function editPost(){
+
+		$statement = $this->pdo->prepare("SELECT title, img, blogText, nrOfLikes, postDate,username, id FROM post
+			INNER JOIN users 
+			ON post.userId = users.userId
+		 ");
+		$statement->execute();
+
+		$editPost = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		return $editPost;
+		// var_dump($editPosts);
+	} 
+
 } // class end
-
-    
-

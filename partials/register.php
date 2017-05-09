@@ -12,7 +12,7 @@ class Register{
 	}
 	public function userInDb(){
 
-		$statement = $this->pdo->prepare("SELECT username FROM users WHERE username = :username
+		$statement = $this->pdo->prepare("SELECT username FROM user WHERE username = :username
 			");
 		$statement->execute([":username" => $_POST['username']]);
 
@@ -40,7 +40,7 @@ class Register{
 			$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); 
 
 			$statement = $this->pdo->prepare("
-				INSERT INTO users (username, password, email, firstname, lastname)
+				INSERT INTO user (username, password, email, firstname, lastname)
 				VALUES (:username, :password, :email, :firstname, :lastname)");
 
 //Execute statement, fetch data
@@ -53,10 +53,14 @@ class Register{
 				]);
 			echo'<script>window.location="../";</script>';
 		}
+<<<<<<< HEAD
 
 
 		header('Location: /php-ninjas'); //CHANGE TO FETCH
 
+=======
+		header('Location: /php-ninjas'); //CHANGE TO FETCH
+>>>>>>> e7b1fbe7b12064ab0050a085bb73dd8eddb14550
 } //end method
 
 } //end class

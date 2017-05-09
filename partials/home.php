@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -19,9 +19,15 @@ if (!isset($username)) {
 	else{
 		include 'userNavbar.php';
 }
+
 	echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>'
 ;
+
+	//echo "Welcome". "  " .$username;
+
    include "showpostOnHtml.php";
+
+   include "editPostOnHtml.php";
 
 
 include 'footer.php';

@@ -5,3 +5,6 @@ include "post.php";
 
 $createPost = new Post($pdo);
 $createPost->createPost();
+
+$editPost = new Post($pdo);
+$editPost->editPost();

@@ -14,7 +14,7 @@ class Comment {
 
 	public function createComment(){
 		$statement = $this->pdo->prepare("
-			INSERT INTO comments (comment, userId, postId)
+			INSERT INTO comment (comment, userId, postId)
 			VALUES (:comment, :userId, :postId)");
 
 //Execute statement, fetch data
@@ -26,6 +26,20 @@ class Comment {
 			]);
 
 		header('Location: /php-ninjas/partials/home.php');
+	} //function end
+
+
+	public function showComment() {
+		$statement = $this->pdo->prepare("SELECT post.*, comment.*, user.* FROM comment
+			LEFT JOIN post 
+			ON comment.postId = post.Id
+			LEFT JOIN user 
+			ON comment.userId = user.userId
+			ORDER BY comment.commentDate DESC
+			");
+		$statement->execute();
+		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $comments;
 	} //function end
 }
 
