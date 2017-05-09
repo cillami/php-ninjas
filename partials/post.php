@@ -124,4 +124,30 @@ header('Location: /php-ninjas/partials/home.php');
 header('Location: /php-ninjas/partials/home.php');  
 
 }  
+	public function likePost(){
+			// var_dump($_POST['edit']);
+
+
+
+
+		if(isset($_GET['like'])){
+
+			echo "Liked";
+	}
+			$id = $_GET['like'];
+
+			$statement = $this->pdo->prepare("
+			INSERT INTO likes
+			WHERE id = :id
+			");
+
+			$statement->execute([
+			":id" => $id
+			]);
+
+			return $statement;
+	
+header('Location: /php-ninjas/partials/home.php');  
+
+} 
 }// class end

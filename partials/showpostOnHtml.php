@@ -58,6 +58,12 @@ foreach ($posts as $row) {
 						?>
 					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
+					
+
+					if ($_SESSION['userId']){
+						?>
+					<a href='likePost.php?like=<?=$postId ?>' class="like"> Like</a>  
+					<?php }
 					?>
 
 
