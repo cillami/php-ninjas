@@ -76,7 +76,6 @@ class Post{
 		}
 	} 
 
-
 	public function savePost(){
 			// var_dump($_POST['edit']);
 		if(isset($_POST['id'])){

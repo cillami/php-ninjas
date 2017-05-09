@@ -11,7 +11,7 @@ gulp.task('default', ['browser-sync']);
 gulp.task('sass', function () {
 	return gulp.src('./sass/default.scss')
 	.pipe(sourcemaps.init())
-	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('./css'))
 	.pipe(browserSync.stream());

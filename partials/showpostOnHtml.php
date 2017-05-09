@@ -1,4 +1,5 @@
 <?php
+//start_session();
 include "error.php";
 include "database.php";
 include "header.php";
@@ -6,6 +7,10 @@ include "header.php";
 
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
+
+// echo "<pre>";
+// 	print_r($posts);
+// 	echo "</pre>";
 
 foreach ($posts as $row) {
 	$title = $row['title'];
@@ -15,7 +20,11 @@ foreach ($posts as $row) {
 	$postDate = $row['postDate'];
 	$username = $row['username'];
 	$postId = $row['id'];
+	$userId = $row['userId'];
 	//$comments = explode(";",$row['comments']);
+	// echo "<pre>";
+	// print_r($userId);
+	// echo "</pre>";
 	?>
 	<div class='col-md-4 col-sm-12'>
 		<div class='card'>
@@ -38,13 +47,22 @@ foreach ($posts as $row) {
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<button type='submit' class='btn btn-primary'>Submit</button>
 				</form>	 
-			<a href='editViewForm.php?edit=<?= $postId ?>'> Edit</a> 
-		
+ 
+				<?php 
+
+				if($_SESSION['userId'] === $userId){
+				?><a href='editViewForm.php?edit=<?= $postId ?>'> Edit</a> 
+					<?php }
+
+					?>
+
+
+				</div>
 			</div>
 		</div>
-	</div>
-	<?php
-}
+
+		<?php
+	}
 
 include "footer.php";
 ?>
