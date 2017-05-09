@@ -19,7 +19,8 @@ if (!isset($username)) {
 	else{
 		include 'userNavbar.php';
 }
-	echo "Welcome". "  " .$username;
+	echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>'
+;
    include "showpostOnHtml.php";
 
 
