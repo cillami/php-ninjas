@@ -61,7 +61,18 @@ class Post{
 		return $posts;
 	} 
 
+	public function editPost(){
+
+		$statement = $this->pdo->prepare("SELECT title, img, blogText, nrOfLikes, postDate,username, id FROM post
+			INNER JOIN users 
+			ON post.userId = users.userId
+		 ");
+		$statement->execute();
+
+		$editPost = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		return $editPost;
+		// var_dump($editPosts);
+	} 
+
 } // class end
-
-    
-
