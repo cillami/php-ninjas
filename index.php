@@ -3,9 +3,6 @@
 	include "partials/error.php";
 	include "partials/database.php";
 	include "partials/post.php";
-    //include "partials/showpost.php";
-
-//echo "TEST";
 	?>
 
 	<?php
