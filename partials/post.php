@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "error.php";
 include "database.php";
 
@@ -63,16 +63,44 @@ class Post{
 
 	public function editPost(){
 
-		$statement = $this->pdo->prepare("SELECT title, img, blogText, nrOfLikes, postDate,username, id FROM post
-			INNER JOIN users 
-			ON post.userId = user.userId
-		 ");
+		if(isset($_GET['edit'])){
+	
+		$id = $_GET['edit']; //get the post with the edit-id
+		$statement = $this->pdo->prepare("SELECT * FROM post WHERE $id = id"); 
+	
 		$statement->execute();
 
-		$editPost = $statement->fetchAll(PDO::FETCH_ASSOC);
+		$editPost = $statement->fetch(PDO::FETCH_ASSOC);
 
-		return $editPost;
-		// var_dump($editPosts);
+		return $editPost; 
+		}
 	} 
 
-} // class end
+
+	public function savePost(){
+			// var_dump($_POST['edit']);
+		if(isset($_POST['id'])){
+	
+		$id = $_POST['id'];
+		 //get the post with the right edit-id
+
+			$statement = $this->pdo->prepare("
+			UPDATE post 
+			SET title = :title, img = :img, blogText = :blogText 
+			WHERE id = :id
+			");
+
+			$statement->execute([
+			":title" => $_POST['title'],
+			":img" => $_POST['img'],
+			":blogText" => $_POST['blogText'],
+			":id" => $id
+		
+			]);
+
+			// return $statement;
+	}
+header('Location: /php-ninjas/partials/home.php');  
+
+}  
+}// class end

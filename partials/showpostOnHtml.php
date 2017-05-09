@@ -29,7 +29,7 @@ foreach ($posts as $row) {
 					Made by: <?= $username ?> <?= $postDate ?>
 				</p>
 				<?php 
-				include "showComment.php";
+				// include "showComment.php";
 				?>
 				<form action='createComment.php' method='POST'>
 					<div class='form-group'>
@@ -37,11 +37,9 @@ foreach ($posts as $row) {
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<button type='submit' class='btn btn-primary'>Submit</button>
-				</form>	
-				<form action='editPostOnHtml.php' method='GET'>
-					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button type='submit' class='btn btn-primary'>Edit</button>
-				</form>
+				</form>	 
+			<a href='editViewForm.php?edit=<?= $postId ?>'> Edit</a> 
+		
 			</div>
 		</div>
 	</div>
