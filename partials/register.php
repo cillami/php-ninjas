@@ -53,11 +53,7 @@ class Register{
 				]);
 			echo'<script>window.location="../";</script>';
 		}
-
-<<<<<<< HEAD
 		header('Location: /php-ninjas'); //CHANGE TO FETCH
-=======
->>>>>>> 4be64af6a703e42c3a5e69dd293a0d2f8a21f8e8
 } //end method
 
 } //end class

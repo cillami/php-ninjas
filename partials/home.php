@@ -22,5 +22,7 @@ if (!isset($username)) {
 	echo "Welcome". "  " .$username;
    include "showpostOnHtml.php";
 
+   include "editPostOnHtml.php";
+
 
 include 'footer.php';
