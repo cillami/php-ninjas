@@ -1,10 +1,10 @@
 <?php
-//session_start();
+session_start();
 include 'header.php';
 include 'error.php';
 include 'database.php';
 include 'post.php';  
-
+require '../config/config.php';
  
 
 $username = $_SESSION["username"];

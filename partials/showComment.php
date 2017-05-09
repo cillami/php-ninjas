@@ -7,7 +7,7 @@ include "comment.php";
 
 <?php
 $showNewComment = new Comment($pdo);
-$comments = $showNewComment->showComment();
+$comments = $showNewComment->getComment();
 
 foreach ($comments as $row) {
 	$newComment = $row['comment'];

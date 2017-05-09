@@ -5,7 +5,7 @@ include "database.php";
 
 
 class Comment {
-   private $pdo;
+	private $pdo;
 
 	public function __construct($pdo)
 	{
@@ -29,8 +29,9 @@ class Comment {
 	} //function end
 
 
-	public function showComment() {
-		$statement = $this->pdo->prepare("SELECT post.*, comment.*, user.* FROM comment
+	public function getComment() {
+		$statement = $this->pdo->prepare("
+			SELECT * FROM comment
 			LEFT JOIN post 
 			ON comment.postId = post.Id
 			LEFT JOIN user 
