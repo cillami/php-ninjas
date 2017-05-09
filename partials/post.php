@@ -65,7 +65,7 @@ class Post{
 
 		$statement = $this->pdo->prepare("SELECT title, img, blogText, nrOfLikes, postDate,username, id FROM post
 			INNER JOIN users 
-			ON post.userId = users.userId
+			ON post.userId = user.userId
 		 ");
 		$statement->execute();
 
