@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -19,7 +19,7 @@ if (!isset($username)) {
 	else{
 		include 'userNavbar.php';
 }
-	echo "Welcome". "  " .$username;
+	//echo "Welcome". "  " .$username;
    include "showpostOnHtml.php";
 
    include "editPostOnHtml.php";

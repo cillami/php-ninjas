@@ -53,8 +53,6 @@ class Post{
 			ON post.userId = users.userId
 			ORDER BY postDate DESC
 			LIMIT 3 
-
-			
 			");
 		$statement->execute();
 

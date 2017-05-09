@@ -27,5 +27,19 @@ class Comment {
 
 		header('Location: /php-ninjas/partials/home.php');
 	} //function end
+
+
+	public function showComment() {
+		$statement = $this->pdo->prepare("SELECT * FROM comments
+			INNER JOIN post 
+			ON comments.postId = post.Id
+			INNER JOIN users 
+			ON comments.userId = users.userId
+			ORDER BY comments.commentDate DESC
+			");
+		$statement->execute();
+		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $comments;
+	} //function end
 }
 
