@@ -34,8 +34,8 @@ class Post{
 	public function showPost(){
 
 		$statement = $this->pdo->prepare("SELECT * FROM post
-			INNER JOIN users 
-			ON post.userId = users.userId
+			INNER JOIN user 
+			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			");
 		$statement->execute();
@@ -49,8 +49,8 @@ class Post{
 	public function latestPost(){
 
 		$statement = $this->pdo->prepare("SELECT * FROM post
-			INNER JOIN users 
-			ON post.userId = users.userId
+			INNER JOIN user 
+			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			LIMIT 3 
 			");

@@ -14,7 +14,7 @@ class Comment {
 
 	public function createComment(){
 		$statement = $this->pdo->prepare("
-			INSERT INTO comments (comment, userId, postId)
+			INSERT INTO comment (comment, userId, postId)
 			VALUES (:comment, :userId, :postId)");
 
 //Execute statement, fetch data
@@ -30,12 +30,12 @@ class Comment {
 
 
 	public function showComment() {
-		$statement = $this->pdo->prepare("SELECT * FROM comments
-			INNER JOIN post 
-			ON comments.postId = post.Id
-			INNER JOIN users 
-			ON comments.userId = users.userId
-			ORDER BY comments.commentDate DESC
+		$statement = $this->pdo->prepare("SELECT post.*, comment.*, user.* FROM comment
+			LEFT JOIN post 
+			ON comment.postId = post.Id
+			LEFT JOIN user 
+			ON comment.userId = user.userId
+			ORDER BY comment.commentDate DESC
 			");
 		$statement->execute();
 		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);

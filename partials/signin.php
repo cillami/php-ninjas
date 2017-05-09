@@ -21,7 +21,7 @@ class SignIn{
 			$username = $_POST["username"];
 			$password = $_POST["password"];
 
-			$statement = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+			$statement = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
 
 			$statement->execute([":username" => $username]);
 			$data = $statement->fetch(PDO::FETCH_ASSOC);
