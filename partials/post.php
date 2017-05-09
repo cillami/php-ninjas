@@ -38,12 +38,12 @@ class Post{
 			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			");
-		$statement->execute();
+			$statement->execute();
 
-		$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+			
+			return $posts;
 
-         return $posts;
-		
 	} //showPost end
 
 	public function latestPost(){
@@ -64,90 +64,90 @@ class Post{
 	public function editPost(){
 
 		if(isset($_GET['edit'])){
-	
+
 		$id = $_GET['edit']; //get the post with the edit-id
 		$statement = $this->pdo->prepare("SELECT * FROM post WHERE $id = id"); 
-	
+
 		$statement->execute();
 
 		$editPost = $statement->fetch(PDO::FETCH_ASSOC);
 
 		return $editPost; 
-		}
-	} 
+	}
+} 
 
-	public function savePost(){
+public function savePost(){
 			// var_dump($_POST['edit']);
-		if(isset($_POST['id'])){
-	
+	if(isset($_POST['id'])){
+
 		$id = $_POST['id'];
 		 //get the post with the right edit-id
 
-			$statement = $this->pdo->prepare("
+		$statement = $this->pdo->prepare("
 			UPDATE post 
 			SET title = :title, img = :img, blogText = :blogText 
 			WHERE id = :id
 			");
 
-			$statement->execute([
+		$statement->execute([
 			":title" => $_POST['title'],
 			":img" => $_POST['img'],
 			":blogText" => $_POST['blogText'],
 			":id" => $id
-		
+
 			]);
 
 			// return $statement;
 	}
-header('Location: /php-ninjas/partials/home.php');  
+	header('Location: /php-ninjas/partials/home.php');  
 
 }  
-	public function deletePost(){
+public function deletePost(){
 			// var_dump($_POST['edit']);
-		if(isset($_GET['del'])){
-	
+	if(isset($_GET['del'])){
+
 		$id = $_GET['del'];
 		// var_dump($id);
 		 //get the post with the right edit-id
 
-			$statement = $this->pdo->prepare("
+		$statement = $this->pdo->prepare("
 			DELETE FROM post 
 			WHERE id = :id
 			");
 
-			$statement->execute([
+		$statement->execute([
 			":id" => $id
 			]);
 
-			return $statement;
+		return $statement;
 	}
-header('Location: /php-ninjas/partials/home.php');  
+	header('Location: /php-ninjas/partials/home.php');  
 
 }  
-	public function likePost(){
+public function likePost(){
 			// var_dump($_POST['edit']);
 
 
 
 
-		if(isset($_GET['like'])){
+	if(isset($_GET['like'])){
 
-			echo "Liked";
+		echo "Liked";
 	}
-			$id = $_GET['like'];
+	$id = $_GET['like'];
 
-			$statement = $this->pdo->prepare("
-			INSERT INTO likes
-			WHERE id = :id
-			");
+	$statement = $this->pdo->prepare("
+		INSERT INTO likes
+		WHERE id = :id
+		");
 
-			$statement->execute([
-			":id" => $id
-			]);
+	$statement->execute([
+		":id" => $id
+		]);
 
-			return $statement;
+	return $statement;
 	
-header('Location: /php-ninjas/partials/home.php');  
+	header('Location: /php-ninjas/partials/home.php');  
 
 } 
 }// class end

@@ -1,3 +1,7 @@
+<?php>
+//require '../config/config.php';
+include 'header.php';
+?>
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -21,5 +25,6 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<?php include 'footer.php';
+<?php
+ include 'footer.php';
 ?>

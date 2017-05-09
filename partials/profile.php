@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+require '../config/config.php';
 include "error.php";
 include "database.php";
 include "profile-header-view.php";

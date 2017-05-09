@@ -28,19 +28,26 @@ class Comment {
 		header('Location: /php-ninjas/partials/home.php');
 	} //function end
 
-
-	public function getComment() {
+	public function getCommentByPostId($postId) {
 		$statement = $this->pdo->prepare("
 			SELECT * FROM comment
-			LEFT JOIN post 
-			ON comment.postId = post.Id
 			LEFT JOIN user 
 			ON comment.userId = user.userId
+			WHERE comment.postId = :postId
 			ORDER BY comment.commentDate DESC
 			");
-		$statement->execute();
+		$statement->execute([
+			":postId" => $postId
+			]);
 		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 		return $comments;
 	} //function end
+
+
+	public function deleteCommentByCommentId() {
+		$statement = $this->pdo->prepare("
+
+			");
+	}
 }
 
