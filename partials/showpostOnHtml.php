@@ -51,10 +51,15 @@ foreach ($posts as $row) {
 				<?php 
 
 				if($_SESSION['userId'] === $userId){
-				?><a href='editViewForm.php?edit=<?= $postId ?>'> Edit</a> 
+				?><a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+				<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
-
+					else if ($_SESSION['isAdmin']){
+						?>
+					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<?php }
 					?>
+
 
 
 				</div>

@@ -102,4 +102,26 @@ class Post{
 header('Location: /php-ninjas/partials/home.php');  
 
 }  
+	public function deletePost(){
+			// var_dump($_POST['edit']);
+		if(isset($_GET['del'])){
+	
+		$id = $_GET['del'];
+		// var_dump($id);
+		 //get the post with the right edit-id
+
+			$statement = $this->pdo->prepare("
+			DELETE FROM post 
+			WHERE id = :id
+			");
+
+			$statement->execute([
+			":id" => $id
+			]);
+
+			return $statement;
+	}
+header('Location: /php-ninjas/partials/home.php');  
+
+}  
 }// class end
