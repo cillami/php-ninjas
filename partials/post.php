@@ -64,8 +64,8 @@ class Post{
 	public function editPost(){
 
 		$statement = $this->pdo->prepare("SELECT title, img, blogText, nrOfLikes, postDate,username, id FROM post
-			INNER JOIN users 
-			ON post.userId = users.userId
+			INNER JOIN user 
+			ON post.userId = user.userId
 		 ");
 		$statement->execute();
 
