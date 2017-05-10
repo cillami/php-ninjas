@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 include "error.php";
 include "database.php";
 
@@ -22,25 +24,44 @@ class Comment {
 
 			":comment" => $_POST['comment'],
 			":userId" => $_SESSION['userId'],
-			":postId" => $_POST['postId']
+			":postId" => $_POST['postId'],
 			]);
 
 		header('Location: /php-ninjas/partials/home.php');
 	} //function end
 
-
-	public function getComment() {
+	public function getCommentByPostId($postId) {
 		$statement = $this->pdo->prepare("
 			SELECT * FROM comment
-			LEFT JOIN post 
-			ON comment.postId = post.Id
 			LEFT JOIN user 
 			ON comment.userId = user.userId
+			WHERE comment.postId = :postId
 			ORDER BY comment.commentDate DESC
 			");
-		$statement->execute();
+		$statement->execute([
+			":postId" => $postId
+			]);
 		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 		return $comments;
 	} //function end
-}
+
+	public function deleteCommentByCommentId() {
+		if (isset($_GET['del'])) {
+			$id = $_GET['del'];
+			
+			$statement = $this->pdo->prepare("
+				DELETE FROM comment
+				WHERE commentId = :commentId
+				");
+
+			$statement->execute([
+				":commentId" => $id
+				]);
+
+			return $statement;
+		}
+		header('Location: /php-ninjas/partials/home.php');
+	}
+
+} //End of Class
 

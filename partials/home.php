@@ -1,10 +1,11 @@
 <?php
 session_start();
+require '../config/config.php';
 include 'header.php';
 include 'error.php';
 include 'database.php';
 include 'post.php';  
-require '../config/config.php';
+
  
 
 $username = $_SESSION["username"];
@@ -27,7 +28,7 @@ if (!isset($username)) {
 
    include "showpostOnHtml.php";
 
-   include "editPostOnHtml.php";
+   //include "editPostOnHtml.php";
 
 
 include 'footer.php';
