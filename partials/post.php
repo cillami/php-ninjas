@@ -127,18 +127,40 @@ public function deletePost(){
 
 }  
 public function likePost(){
-			// var_dump($_POST['edit']);
+ 
+	if(isset($_GET['like'])){
 
-		if(isset($_GET['like'])){
 
-
-		echo "Liked";
-	}
 	$id = $_GET['like'];
 
 	$statement = $this->pdo->prepare("
-		INSERT INTO likes
-		WHERE id = :id
+		INSERT INTO likes (likeId, userId, postId) 
+		VALUES (likeId, :userId, :postId)	 
+		");
+
+	$id = $_GET['like'];
+
+	$statement->execute([
+		":userId" => $_SESSION['userId'],
+		":postId" => $id
+		]);
+
+	return $statement;
+ }
+	header('Location: /php-ninjas/partials/home.php');  
+
+} 
+public function countLikesOnPostId(){
+ 
+	if(isset($_GET['like'])){
+
+
+	$id = $_GET['like'];
+
+	$statement = $this->pdo->prepare("
+		SELECT COUNT(postId) AS NoOfLikes FROM likes 
+		WHERE postId = :id
+			 
 		");
 
 	$statement->execute([
@@ -146,8 +168,12 @@ public function likePost(){
 		]);
 
 	return $statement;
-	
-	header('Location: /php-ninjas/partials/home.php');  
+ } 
 
 } 
 }// class end
+
+$countLike = new Post($pdo);
+$countLike->countLikesOnPostId();
+
+var_dump($countLike['postId']);
