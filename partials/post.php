@@ -1,6 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+	session_start();
 }
 include "error.php";
 include "database.php";
@@ -40,11 +40,11 @@ class Post{
 			ON post.userId = user.userId
 			ORDER BY postDate DESC
 			");
-			$statement->execute();
+		$statement->execute();
 
-			$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-			
-			return $posts;
+		$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+		
+		return $posts;
 
 	} //showPost end
 

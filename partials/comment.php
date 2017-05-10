@@ -1,6 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+	session_start();
 }
 include "error.php";
 include "database.php";
@@ -24,7 +24,7 @@ class Comment {
 
 			":comment" => $_POST['comment'],
 			":userId" => $_SESSION['userId'],
-			":postId" => $_POST['postId']
+			":postId" => $_POST['postId'],
 			]);
 
 		header('Location: /php-ninjas/partials/home.php');
@@ -45,11 +45,23 @@ class Comment {
 		return $comments;
 	} //function end
 
-
 	public function deleteCommentByCommentId() {
-		$statement = $this->pdo->prepare("
+		if (isset($_GET['del'])) {
+			$id = $_GET['del'];
+			
+			$statement = $this->pdo->prepare("
+				DELETE FROM comment
+				WHERE commentId = :commentId
+				");
 
-			");
+			$statement->execute([
+				":commentId" => $id
+				]);
+
+			return $statement;
+		}
+		header('Location: /php-ninjas/partials/home.php');
 	}
-}
+
+} //End of Class
 

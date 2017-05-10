@@ -1,5 +1,7 @@
 <?php
-//start_session();
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 include "error.php";
 include "database.php";
 include "header.php";
@@ -38,6 +40,7 @@ foreach ($posts as $post) {
 				<?php
 				$showNewComment = new Comment($pdo);
 				$comments = $showNewComment->getCommentByPostId($postId);
+				//var_dump($comments);
 				foreach ($comments as $comment) {
 					?>
 					<p class="card-text">
@@ -45,6 +48,13 @@ foreach ($posts as $post) {
 					</p>
 					<p class="card-text">
 						Comment by: <?= $comment['username'] ?> <?= $comment['commentDate'] ?>
+						<?php
+						if ($_SESSION['isAdmin']) {
+							?>
+							<a href='deleteComment.php?del=<?=$comment['commentId'] ?>'>Delete</a>
+							<?php
+						}
+						?>
 					</p>
 					<?php
 				}
@@ -58,22 +68,24 @@ foreach ($posts as $post) {
 				</form>	 
 				<?php 
 				if($_SESSION['userId'] === $userId){
-					?><a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+					?>
+					<a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<?php 
+				}
+				else if ($_SESSION['isAdmin']){
+					?>
 					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
-					else if ($_SESSION['isAdmin']){
+					if ($_SESSION['userId']){
 						?>
-						<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+						<a href='likePost.php?like=<?=$postId ?>' class="like"> Like</a>  
 						<?php }
-						if ($_SESSION['userId']){
-							?>
-							<a href='likePost.php?like=<?=$postId ?>' class="like"> Like</a>  
-							<?php }
-							?>
-						</div>
+						?>
 					</div>
 				</div>
-				<?php
-			}
-			include "footer.php";
-			?>
+			</div>
+			<?php
+		}
+		include "footer.php";
+		?>
