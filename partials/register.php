@@ -12,30 +12,29 @@ class Register{
 	}
 	public function userInDb(){
 
-		$statement = $this->pdo->prepare("SELECT username FROM user WHERE username = :username
+		$statement = $this->pdo->prepare("SELECT username, email FROM user WHERE username = :username OR email = :email
 			");
-		$statement->execute([":username" => $_POST['username']]);
+		$statement->execute([
+			":username" => $_POST['username'],
+			":email" => $_POST['email']
+			]);
 
-		return $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $statement->fetchAll(PDO::FETCH_ASSOC); 
 
 	}
 
-	public function alert($alert){
-		echo '<script type="text/javascript">alert("' . $alert . '")</script>';
-	}
+	// public function alert($alert){
+	// 	echo '<script type="text/javascript">alert("' . $alert . '")</script>';
+	// }
 
 	public function createUser(){
-		// var_dump($user);
-		// include 'alert.php';
+ 
+		$email = $_POST['email'];
+		$user = $_POST['username'];
 
-		if($this->userInDb() == true)
-		{
-			$this->alert("Username already exists! Please try a new one.");
-			echo'<script>window.location="../";</script>';
-			// include 'index.php';
+		$arr = $this->userInDb();
 
-		}
-		else 
+		if(count($arr) === 0)
 		{
 			$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); 
 
@@ -51,16 +50,29 @@ class Register{
 				":firstname" => $_POST['firstname'],
 				":lastname" => $_POST['lastname']
 				]);
+			
 			echo'<script>window.location="../";</script>';
 		}
-<<<<<<< HEAD
+		else if($arr[0]['username'] == $user && $arr[0]['email'] == $email){
 
+			$error = "Username and email-address already exists! Please try again.";
+			// $this->alert("Username and email-address already exists! Please try again.");
+			// echo'<script>window.location="../";</script>';
+			header("Location: /php-ninjas?error=$error");
+		}
+		else if($arr[0]['username'] == $user){
 
-		header('Location: /php-ninjas'); //CHANGE TO FETCH
+			$error = "Username already exists! Please choose a new one.";
+			header("Location: /php-ninjas?error=$error");
+		}
+		else if($arr[0]['email'] == $email){
 
-=======
-		header('Location: /php-ninjas'); //CHANGE TO FETCH
->>>>>>> e7b1fbe7b12064ab0050a085bb73dd8eddb14550
+			$error = "Email-address already exists! Please choose a new one.";
+			header("Location: /php-ninjas?error=$error");
+		}
+
+		// header('Location: /php-ninjas'); //CHANGE TO FETCH
+
 } //end method
 
 } //end class

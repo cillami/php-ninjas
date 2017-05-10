@@ -127,9 +127,6 @@ header('Location: /php-ninjas/partials/home.php');
 	public function likePost(){
 			// var_dump($_POST['edit']);
 
-
-
-
 		if(isset($_GET['like'])){
 
 			echo "Liked";

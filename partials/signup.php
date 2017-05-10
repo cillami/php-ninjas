@@ -1,5 +1,17 @@
+<?php 
+?>
+
 <div class="col-md-4 col-sm-12">
         <section class="margin-t con-signup">
+        <div>
+        <?php 
+        if(isset($_GET["error"]))
+        {
+          echo $_GET["error"];
+        } 
+
+        ?>
+        </div>
           <form action="partials/createUser.php" method="POST">
             <div class="form-group">
               <label class="inputLabel" for="username">Username</label>
