@@ -158,7 +158,7 @@ public function countLikesOnPostId(){
 	$id = $_GET['like'];
 
 	$statement = $this->pdo->prepare("
-		SELECT COUNT(postId) AS NoOfLikes FROM likes 
+		SELECT COUNT(postId) FROM likes 
 		WHERE postId = :id
 			 
 		");
@@ -174,6 +174,6 @@ public function countLikesOnPostId(){
 }// class end
 
 $countLike = new Post($pdo);
-$countLike->countLikesOnPostId();
+$data = $countLike->countLikesOnPostId();
 
-var_dump($countLike['postId']);
+var_dump($data);
