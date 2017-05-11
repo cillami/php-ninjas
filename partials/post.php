@@ -150,6 +150,22 @@ public function likePost(){
 	header('Location: /php-ninjas/partials/home.php');  
 
 } 
+
+	public function showLikeOnPost(){
+
+		$statement = $this->pdo->prepare("SELECT * FROM post
+			INNER JOIN user 
+			ON post.userId = user.userId
+			
+			");
+		$statement->execute();
+
+		$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+		
+		return $posts;
+
+	} //showPost end
+
 public function countLikesOnPostId(){
  
 	if(isset($_GET['like'])){
@@ -159,8 +175,7 @@ public function countLikesOnPostId(){
 
 	$statement = $this->pdo->prepare("
 		SELECT COUNT(postId) FROM likes 
-		WHERE postId = :id
-			 
+		WHERE postId = :id		 
 		");
 
 	$statement->execute([
@@ -172,8 +187,3 @@ public function countLikesOnPostId(){
 
 } 
 }// class end
-
-$countLike = new Post($pdo);
-$data = $countLike->countLikesOnPostId();
-
-var_dump($data);
