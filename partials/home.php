@@ -21,8 +21,7 @@ if (!isset($username)) {
 		include 'userNavbar.php';
 }
 
-	echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>'
-;
+	//echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>';
 
 	//echo "Welcome". "  " .$username;
 

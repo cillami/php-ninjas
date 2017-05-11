@@ -14,77 +14,86 @@ class Like{
 		$this->pdo = $pdo;
 	}
 
+	public function getAllLikes() {
+
+		$statement = $this->pdo->prepare("
+               SELECT * FROM likes
+			");
+         $statement->execute();
+         return $statement->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	public function likePost(){
- 
-	if(isset($_GET['like'])){
 
-	$id = $_GET['like'];
-	
-	$statement = $this->pdo->prepare("
-		INSERT INTO likes (userId, postId) 
-		VALUES (:userId, :postId)	 
-		");
+		if(isset($_GET['like'])){
 
-	$statement->execute([
-		":userId" => $_SESSION['userId'],
-		":postId" => $id
-		]);
+			$id = $_GET['like'];
 
-	return $statement;
- }
-	header('Location: /php-ninjas/partials/home.php');  
+			$statement = $this->pdo->prepare("
+				INSERT INTO likes (userId, postId) 
+				VALUES (:userId, :postId)	 
+				");
 
-} 
+			$statement->execute([
+				":userId" => $_SESSION['userId'],
+				":postId" => $id
+				]);
 
-public function getLike(){
- 
-	if(isset($_GET['like'])){
-	
-	$id = $_GET['like'];
+			return $statement;
+		}
+		header('Location: /php-ninjas/partials/home.php');  
 
-	$statement = $this->pdo->prepare("
-		SELECT * FROM likes 
-		WHERE userId = :userId AND postId = :id	
-		");
+	} 
 
-		$statement->execute([
-		":userId" => $_SESSION['userId'],
-		":id" => $id
-		]);
+	public function getLike(){
 
-		$getLike = $statement->fetchAll(PDO::FETCH_ASSOC);
+		if(isset($_GET['like'])){
 
-		return $getLike; 
- }
-	header('Location: /php-ninjas/partials/home.php');  
+			$id = $_GET['like'];
 
-} 
-public function deleteLike(){
+			$statement = $this->pdo->prepare("
+				SELECT * FROM likes 
+				WHERE userId = :userId AND postId = :id	
+				");
+
+			$statement->execute([
+				":userId" => $_SESSION['userId'],
+				":id" => $id
+				]);
+
+			$getLike = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+			return $getLike; 
+		}
+		header('Location: /php-ninjas/partials/home.php');  
+
+	} 
+	public function deleteLike(){
 			// var_dump($_POST['edit']);
-	if(isset($_GET['like'])){
+		if(isset($_GET['like'])){
 
-		$id = $_GET['like'];
+			$id = $_GET['like'];
 		// var_dump($id);
 		 //get the post with the right edit-id
 
-		$statement = $this->pdo->prepare("
-			DELETE FROM likes 
-			WHERE userId = :userId AND postId = :id	
-			");
+			$statement = $this->pdo->prepare("
+				DELETE FROM likes 
+				WHERE userId = :userId AND postId = :id	
+				");
 
-		$statement->execute([
-		":userId" => $_SESSION['userId'],
-		":id" => $id
-		]);
+			$statement->execute([
+				":userId" => $_SESSION['userId'],
+				":id" => $id
+				]);
 
-		return $statement;
-	}
-	header('Location: /php-ninjas/partials/home.php');  
+			return $statement;
+		}
+		header('Location: /php-ninjas/partials/home.php');  
 
-} 
+	} 
 
 // public function countLikesOnPostId(){
- 
+
 // 	if(isset($_GET['like'])){
 
 
@@ -108,18 +117,18 @@ public function deleteLike(){
 // 		$statement = $this->pdo->prepare("SELECT * FROM post
 // 			INNER JOIN user 
 // 			ON post.userId = user.userId
-			
+
 // 			");
 // 		$statement->execute();
 
 // 		$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-		
+
 // 		return $posts;
 
 // 	} //showPost end
 
 // public function countLikesOnPostId(){
- 
+
 // 	if(isset($_GET['like'])){
 
 

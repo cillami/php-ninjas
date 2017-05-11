@@ -6,7 +6,9 @@ include "error.php";
 include "database.php";
 include "header.php";
 include "comment.php";
-
+include "like.php";
+$getAllLikes = new Like($pdo);
+$allLikesFromDb = $getAllLikes->getAllLikes();
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
 
@@ -25,6 +27,13 @@ foreach ($posts as $post) {
 	// echo "<pre>";
 	// print_r($userId);
 	// echo "</pre>";
+	$count = 0;
+	foreach ($allLikesFromDb as $like) {
+		if ($like['postId'] === $post['id']) {
+			$count++;
+		}
+	}
+
 	?>
 	<div class='col-md-4 col-sm-12'>
 		<div class='card'>
@@ -61,17 +70,17 @@ foreach ($posts as $post) {
 				?>
 				<form action='createComment.php' method='POST'>
 					<div class='form-group'>
-					<label>Create comment</label>
-						<textarea name='comment' type='text' class='form-control'></textarea>
+						<label>Create comment</label>
+						<textarea required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button type='submit' class='btn btn-primary'>Submit</button>
+					<button class="btn btn-outline-primary" type='submit' class='btn btn-primary'>Submit Comment</button>
 				</form>	 
 				<?php 
 				if($_SESSION['userId'] === $userId){
 					?>
-					<a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
-					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<button class="btn btn-outline-primary" href='editViewForm.php?edit=<?=$postId ?>'> Edit</button>
+					<button class="btn btn-outline-primary" href='deletePost.php?del=<?=$postId ?>'> Delete</button class="btn btn-outline-primary">  
 					<?php 
 				}
 				else if ($_SESSION['isAdmin']){
@@ -79,8 +88,8 @@ foreach ($posts as $post) {
 					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
 					?>
-					<a href='getLike.php?like=<?=$postId ?>' class="like"> Like </a> 
-					
+					<a href='getLike.php?like=<?=$postId ?>' class="like">
+                    <button class="btn-link" type="submit">Likes</button> <?= $count ?> </a> 					
 				</div>
 			</div>
 		</div>
