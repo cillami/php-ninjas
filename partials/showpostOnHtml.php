@@ -61,6 +61,7 @@ foreach ($posts as $post) {
 				?>
 				<form action='createComment.php' method='POST'>
 					<div class='form-group'>
+					<label>Create comment</label>
 						<textarea name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
@@ -77,15 +78,13 @@ foreach ($posts as $post) {
 					?>
 					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
-					if ($_SESSION['userId']){
-						?>
-						<a href='likePost.php?like=<?=$postId ?>' class="like"> Like</a>  
-						<?php }
-						?>
-					</div>
+					?>
+					<a href='getLike.php?like=<?=$postId ?>' class="like"> Like </a> 
+					
 				</div>
 			</div>
-			<?php
-		}
-		include "footer.php";
-		?>
+		</div>
+		<?php
+	}
+	include "footer.php";
+	?>
