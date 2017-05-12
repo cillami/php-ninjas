@@ -79,17 +79,20 @@ foreach ($posts as $post) {
 				<?php 
 				if($_SESSION['userId'] === $userId){
 					?>
-					<button class="btn btn-outline-primary" href='editViewForm.php?edit=<?=$postId ?>'> Edit</button>
-					<button class="btn btn-outline-primary" href='deletePost.php?del=<?=$postId ?>'> Delete</button class="btn btn-outline-primary">  
+					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+					<a class="btn btn-danger" href='deletePost.php?del=<?=$postId ?>'> Delete</a> 
 					<?php 
 				}
 				else if ($_SESSION['isAdmin']){
 					?>
-					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<a class="btn btn-danger" href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
 					?>
-					<a href='getLike.php?like=<?=$postId ?>' class="like">
-                    <button class="btn-link" type="submit">Likes</button> <?= $count ?> </a> 					
+
+					<a class="btn btn-secondary" href='getLike.php?like=<?=$postId ?>' >
+						Like </a>	<?php if($count > 0){
+							echo $count . " by " . $username;
+						} ?>			
 				</div>
 			</div>
 		</div>
