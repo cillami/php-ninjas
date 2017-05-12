@@ -26,7 +26,7 @@ class Comment {
 			":userId" => $_SESSION['userId'],
 			":postId" => $_POST['postId'],
 			]);
-
+           
 		header('Location: /php-ninjas/partials/home.php');
 	} //function end
 

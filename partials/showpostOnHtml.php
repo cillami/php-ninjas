@@ -48,45 +48,26 @@ foreach ($posts as $post) {
 					Made by: <?= $username ?> <?= $postDate ?>
 				</p>
 				<?php
-				$showNewComment = new Comment($pdo);
-				$comments = $showNewComment->getCommentByPostId($postId);
-				//var_dump($comments);
-				foreach ($comments as $comment) {
-					?>
-					<p class="card-text">
-						<?= $comment['comment'] ?>
-					</p>
-					<p class="card-text">
-						Comment by: <?= $comment['username'] ?> <?= $comment['commentDate'] ?>
-						<?php
-						if ($_SESSION['isAdmin']) {
-							?>
-							<a href='deleteComment.php?del=<?=$comment['commentId'] ?>'>Delete</a>
-							<?php
-						}
-						?>
-					</p>
-					<?php
-				}
+			     include "showComment.php";
 				?>
-				<form action='createComment.php' method='POST'>
+				<form id="createComment" method='POST'>
 					<div class='form-group'>
 						<label>Create comment</label>
-						<textarea required="required" name='comment' type='text' class='form-control'></textarea>
+						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button class="btn btn-outline-primary" type='submit' class='btn btn-primary'>Submit Comment</button>
+					<button id="commentButton" class="btn btn-outline-primary" type='submit' class='btn btn-primary'>Submit Comment</button>
 				</form>	 
 				<?php 
 				if($_SESSION['userId'] === $userId){
 					?>
 					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
-					<a class="btn btn-danger" href='deletePost.php?del=<?=$postId ?>'> Delete</a> 
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a> 
 					<?php 
 				}
 				else if ($_SESSION['isAdmin']){
 					?>
-					<a class="btn btn-danger" href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
 					?>
 

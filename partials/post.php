@@ -123,7 +123,7 @@ public function deletePost(){
 
 		return $statement;
 	}
-	header('Location: /php-ninjas/partials/home.php');  
+	//header('Location: /php-ninjas/partials/home.php');  
 
 }  
 

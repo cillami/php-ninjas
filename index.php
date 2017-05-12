@@ -21,6 +21,6 @@
 	</main>
 
 	<?php
-	include "partials/footer.php";
+	include "partials/footerIndex.php";
 	?>
 
