@@ -11,8 +11,8 @@
         } 
 
         ?>
-        </div>
-          <form action="partials/createUser.php" method="POST">
+        </div><p id="message"></p>
+          <form id="RegUserForm" method="POST">
             <div class="form-group">
               <label class="inputLabel" for="username">Username</label>
               <input name="username" type="text" class="form-control" id="username" placeholder="">
@@ -33,7 +33,8 @@
               <label class="inputLabel" for="firstname">Lastname</label>
               <input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submitRegUser">Submit</button>
           </form>
         </section>
       </div>
+

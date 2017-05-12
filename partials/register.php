@@ -51,7 +51,7 @@ class Register{
 				":lastname" => $_POST['lastname']
 				]);
 			
-			echo'<script>window.location="../";</script>';
+			// echo'<script>window.location="../";</script>';
 		}
 		else if($arr[0]['username'] == $user && $arr[0]['email'] == $email){
 
