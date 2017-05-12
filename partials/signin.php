@@ -27,6 +27,7 @@ class SignIn{
 			$data = $statement->fetch(PDO::FETCH_ASSOC);
 			$_SESSION['isAdmin'] = $data['isAdmin'];
 			$_SESSION['userId'] = $data['userId'];
+			$_SESSION['username'] = $data['username'];
 
 			if ($data){
 

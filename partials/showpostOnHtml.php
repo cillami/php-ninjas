@@ -9,6 +9,7 @@ include "comment.php";
 include "like.php";
 $getAllLikes = new Like($pdo);
 $allLikesFromDb = $getAllLikes->getAllLikes();
+
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
 
@@ -30,7 +31,7 @@ foreach ($posts as $post) {
 	$count = 0;
 	foreach ($allLikesFromDb as $like) {
 		if ($like['postId'] === $post['id']) {
-			$count++;
+			$count++;			
 		}
 	}
 
@@ -91,7 +92,8 @@ foreach ($posts as $post) {
 
 					<a class="btn btn-secondary" href='getLike.php?like=<?=$postId ?>' >
 						Like </a>	<?php if($count > 0){
-							echo $count . " by " . $username;
+							echo $count;
+							// echo $count . " by " . $username;
 						} ?>			
 				</div>
 			</div>
