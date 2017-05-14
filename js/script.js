@@ -15,7 +15,7 @@ $('#submitRegUser').click(function(event){
 
 function displayFromDatabase() {
   $.ajax({
-    url: "showComment.php",
+    url: "partials/showComment.php",
     type: "POST",
     async: false,
     data: {
@@ -27,21 +27,23 @@ function displayFromDatabase() {
   })
 }
 
-$('#commentButton').click(function(event){
-  var comment = $('#commentArea').val();
+$('#commentButton').submit(function(event){
+  
+  //var comment = $('#commentArea').val();
   event.preventDefault();
   $.ajax({
-    url: "createComment.php",
+    url: "partials/createComment.php",
     method: "POST",
-    data: { "done": 1
-    "comment": comment
-  },
-    dataType: "text",
+    body: new FormData(this),
+    /*data: $('#commentArea').serialize(),
+    dataType: "text",*/
     cache: false,
-    success: function(data) {
-      displayFromDatabase();
-      $('#comment').val('');
+    success: function() {
+      console.log(data);
+      //displayFromDatabase();
+     // $('#comment').val('');
       alert("Comment Complete");
     }
   })
 });
+

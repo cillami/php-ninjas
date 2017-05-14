@@ -27,7 +27,7 @@ class Comment {
 			":postId" => $_POST['postId'],
 			]);
            
-		header('Location: /php-ninjas/partials/home.php');
+		//header('Location: /php-ninjas/partials/home.php');
 	} //function end
 
 	public function getCommentByPostId($postId) {
