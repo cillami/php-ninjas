@@ -1,12 +1,12 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 require '../config/config.php';
 include 'header.php';
 include 'error.php';
 include 'database.php';
 include 'post.php';  
-
- 
 
 $username = $_SESSION["username"];
 

@@ -16,7 +16,7 @@
 			$username = $row['username'];
 			?>
 			<div class='col-md-10 col-sm-12 col-xs-12'>
-				<div class='card lPost'>
+				<div class='card lPost margin-t'>
 					<img class='card-img-top pt-15 img-fluid' src='<?= $img ?>' alt='Card image cap'>
 					<div class='card-block'>
 						<h4 class='card-title'><?= $title ?></h4>
