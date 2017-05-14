@@ -4,7 +4,7 @@ $comments = $showNewComment->getCommentByPostId($postId);
 				//var_dump($comments);
 foreach ($comments as $comment) {
 	?>
-	<p id="display_p" class="card-text">
+	<p class="card-text display_p">
 	<?= $comment['comment'] ?>
 	</p>
 	<p class="card-text">

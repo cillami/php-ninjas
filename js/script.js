@@ -15,34 +15,29 @@ $('#submitRegUser').click(function(event){
 
 function displayFromDatabase() {
   $.ajax({
-    url: "partials/showComment.php",
+    url: "showComment.php",
     type: "POST",
     async: false,
     data: {
       "display": 1
     },
-    success: function(d) {
-      $('#display_p').html(d);
+    success: function() {
+      $('.display_p').html();
     }
   })
 }
 
-$('#commentButton').submit(function(event){
-  
-  //var comment = $('#commentArea').val();
-  event.preventDefault();
+$('.commentButton').on('click',function(event){
+  //event.preventDefault();
+  $(this).off(event);
   $.ajax({
-    url: "partials/createComment.php",
+    url: "createComment.php",
     method: "POST",
-    body: new FormData(this),
-    /*data: $('#commentArea').serialize(),
-    dataType: "text",*/
-    cache: false,
+    data: $(this).closest('.createComment').serialize(),
+    dataType: "text",
     success: function() {
-      console.log(data);
-      //displayFromDatabase();
-     // $('#comment').val('');
-      alert("Comment Complete");
+      console.log("data");
+      displayFromDatabase();
     }
   })
 });
