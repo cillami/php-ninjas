@@ -9,39 +9,28 @@ $('#submitRegUser').click(function(event){
   success: function(){
     $('#message').text('Welcome! You are now registered, please sign in!')
   }
-
 })
 });
 
+
 function displayFromDatabase() {
-    $.ajax({ 
-    type: 'POST',                                     
-      url: 'showComment.php',                  //the script to call to get data          
-      data: "",                        //you can insert url argumnets here to pass to api.php
-                                       //for example "id=5&parent=6"
-      dataType: 'json',                //data format      
-      success: function(data)          //on recieve of reply
-      {
-        console.log("Comment Complete");
-        var id = data[0];              //get id
-        var vname = data[1];           //get name
-        //--------------------------------------------------------------------
-        // 3) Update html content
-        //--------------------------------------------------------------------
-        $('.display_p').html("<b>id: </b>"+id+"<b> name: </b>"+vname); //Set output element html
-        //recommend reading up on jquery selectors they are awesome 
-        // http://api.jquery.com/category/selectors/
-      },
-       error: function (response) {
-        console.log(response.status);
-        alert(" shit dont work fix it: ");
-      }
-  }); 
+  $.ajax({
+    method: 'GET',
+    url: 'showComment.php',
+  //när det funkar :
+  success: (response) => {
+    alert("Comment Posted");
+  },
+  //errors
+  error: (error) => {console.log(error)}, //alt .fail((error)=> error)
+});
 }
 
-$('.commentButton').on('click',function(event){
-  event.preventDefault();
-  event.stopImmediatePropagation();
+
+
+  $('.commentButton').on('click',function(event){
+    event.preventDefault();
+    event.stopImmediatePropagation();
   //$(this).off(event);
   $.ajax({
     url: "createComment.php",
@@ -50,7 +39,6 @@ $('.commentButton').on('click',function(event){
     dataType: "text",
     success: function() {
       console.log("data");
-      //alert("comment Complete");
       displayFromDatabase();
     },
     error: function (response){
@@ -58,6 +46,7 @@ $('.commentButton').on('click',function(event){
       alert(" it doesnt work... : ");
     }
   })
-
 });
+
+
 
