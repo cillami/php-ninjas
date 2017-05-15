@@ -46,7 +46,7 @@ foreach ($posts as $post) {
 				<p class='card-text'>
 					<?=$blogText ?>
 				</p>
-				<p class="card-text">
+				<p class="card-text color">
 					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
 				<?php
@@ -60,23 +60,26 @@ foreach ($posts as $post) {
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<input class="btn btn-outline-primary commentButton" type='submit' value="Submit Comment"/>
 				</form>	 
+
 				<?php 
 				if($_SESSION['userId'] === $userId){
 					?>
-					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
-					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a> 
+					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a> 
 					<?php 
 				}
 				else if ($_SESSION['isAdmin']){
 					?>
-					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
 					<?php }
 					?>
 
-					<a class="btn btn-secondary" href='getLike.php?like=<?=$postId ?>' >
-						Like </a>	<?php if($count > 0){
+					
+					
+					<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
+							<?php if($count > 0){
 							echo $count;
-							// echo $count . " by " . $username;
+							?> </div> <?php
 						} ?>			
 				</div>
 			</div>

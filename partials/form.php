@@ -19,7 +19,7 @@ include 'header.php';
     <label for="exampleTextarea">Write Post</label>
     <textarea name="blogText" class="form-control" id="blogText" rows="3"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit post</button>
 </form>
 
 </div>
