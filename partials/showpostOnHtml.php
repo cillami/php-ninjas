@@ -36,7 +36,7 @@ foreach ($posts as $post) {
 	}
 
 	?>
-	<div class='col-md-4 col-sm-12'>
+	<div class='col-md-12 col-sm-12'>
 		<div class='card margin-t'>
 			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='Card image cap'>
 			<div class='card-block'>

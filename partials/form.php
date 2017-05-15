@@ -1,8 +1,8 @@
-<?php>
+<?php
 //require '../config/config.php';
 include 'header.php';
 ?>
-<section class="col-md-10 col-sm-12 col-xs-12">
+<section class="col-md-6 col-sm-12 col-xs-12">
 <div class="formFlex">
 <form action="createPost.php" method="POST">
   <div class="form-group">
