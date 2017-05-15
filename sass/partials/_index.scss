@@ -12,12 +12,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-	background-color: lightgrey;
+	background-color: #fffff;
 	font-family: "Roboto";
 }
 
 .con {
-	border: 5px solid orange;
 	height: auto;
 }
 
@@ -55,4 +54,17 @@ body {
 }
 .hide {
 	display:none;
+}
+
+.line{
+	
+	display: block;
+	height: 5px;
+	width: 150px;
+	background-color:#FFE0D2;
+}
+
+.logo{
+	margin-top: 50px;
+	margin-bottom:50px;
 }

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -27,7 +27,7 @@ if (!isset($username)) {
 
    include "showpostOnHtml.php";
 
-   include "editPostOnHtml.php";
+  // include "editPostOnHtml.php";
 
 
 include 'footer.php';
