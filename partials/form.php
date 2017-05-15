@@ -2,15 +2,17 @@
 //require '../config/config.php';
 include 'header.php';
 ?>
-<section class="col-md-6 col-sm-12 col-xs-12">
+<section class="col-md-12 col-sm-12 col-xs-12">
 <div class="formFlex">
+
 <form action="createPost.php" method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">Blog Title</label>
+    <h2>Create new post</h2>
+    <label for="exampleInputEmail1">Title</label>
     <input name="title" type="text" class="form-control" id="blogTitle" placeholder="Enter Title">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Image</label>
+    <label for="exampleInputPassword1">Insert image (http-link)</label>
     <input name="img" type="text" class="form-control" id="blogImg" placeholder="Insert image here">
   </div>
   <div class="form-group">
@@ -19,6 +21,7 @@ include 'header.php';
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 </div>
 </section>
 <?php
