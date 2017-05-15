@@ -36,16 +36,16 @@ foreach ($posts as $post) {
 	}
 
 	?>
-	<div class='col-md-4 col-sm-12'>
+	<div class='col-md-4 col-sm-8 col-xs-12'>
 		<div class='card margin-t'>
-			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='Card image cap'>
+			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>
 					<?=$blogText ?>
 				</p>
 				<p class="card-text">
-					Made by: <?= $username ?> <?= $postDate ?>
+					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
 				<?php
 			     include "showComment.php";
