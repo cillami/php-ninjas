@@ -52,15 +52,15 @@ foreach ($posts as $post) {
 				<?php
 			     include "showComment.php";
 				?>
-				<form class="createComment">
+				<form class="createComment" action="createComment.php" method="POST">
 					<div class='form-group'>
 						<label>Create comment</label>
-						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
+						<textarea required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button  class="btn btn-outline-primary commentButton" type='submit' class='btn btn-primary'>Submit Comment</button>
-				</form>	
-				<div class="button-container d-flex justify-content-end"> 
+					<input class="btn btn-outline-primary commentButton" type='submit' value="Submit Comment"/>
+				</form>	 
+
 				<?php 
 				if($_SESSION['userId'] === $userId){
 					?>
