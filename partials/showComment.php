@@ -1,31 +1,22 @@
 <?php
-include "header.php";
-include "error.php";
-include "database.php";
-include "comment.php";
-?>
-
-<?php
 $showNewComment = new Comment($pdo);
-$comments = $showNewComment->getComment();
-
-foreach ($comments as $row) {
-	$newComment = $row['comment'];
-	$commentDate = $row['commentDate'];
-	$username = $row['username'];
-	$postId = $row['id'];
-
+$comments = $showNewComment->getCommentByPostId($postId);
+				//var_dump($comments);
+foreach ($comments as $comment) {
 	?>
-	<p class="card-text">
-		<?= $newComment ?>
+	<p class="card-text display_p">
+	<?= $comment['comment'] ?>
 	</p>
-    <p class="card-text">
-    	Comment by: <?= $username ?> <?= $commentDate ?>
-    </p>
+	<p class="card-text">
+		Comment by: <?= $comment['username'] ?> <?= $comment['commentDate'] ?>
+		<?php
+		if ($_SESSION['isAdmin']) {
+			?>
+			<a href='deleteComment.php?del=<?=$comment['commentId'] ?>'>Delete</a>
+			<?php
+		}
+		?>
+	</p>
 	<?php
 }
-?>
-
-<?php
-include "footer.php";
 ?>

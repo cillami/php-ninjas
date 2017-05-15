@@ -21,7 +21,6 @@ foreach ($allPosts as $row) {
 	$postDatep = $row['postDate'];
 ?>
   	
-
      	<div class='card'>
 			<img class='card-img-top pt-15 img-fluid' src='<?= $imgp ?>' alt='Card image cap'>
 			<div class='card-block'>
@@ -34,8 +33,6 @@ foreach ($allPosts as $row) {
 				</p>	
 			</div>
 		</div>
-
-
 
   	 <?php
 }

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/default.css">
-	<title>Create Post</title>
-</head>
-<body>
+<?php>
+//require '../config/config.php';
+include 'header.php';
+?>
+<section class="col-md-10 col-sm-12 col-xs-12">
+<div class="formFlex">
 <form action="createPost.php" method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Blog Title</label>
@@ -20,6 +19,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-<?php include 'footer.php';
+</div>
+</section>
+<?php
+ include 'footer.php';
 ?>

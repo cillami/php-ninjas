@@ -1,11 +1,15 @@
 <?php
+
 //session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
 include 'header.php';
 include 'error.php';
 include 'database.php';
 include 'post.php';  
-require '../config/config.php';
- 
 
 $username = $_SESSION["username"];
 
@@ -20,14 +24,16 @@ if (!isset($username)) {
 		include 'userNavbar.php';
 }
 
-	echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>'
-;
+	//echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>';
 
 	//echo "Welcome". "  " .$username;
 
    include "showpostOnHtml.php";
 
   // include "editPostOnHtml.php";
+
+   //include "editPostOnHtml.php";
+
 
 
 include 'footer.php';

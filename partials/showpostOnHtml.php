@@ -1,9 +1,14 @@
 <?php
-//start_session();
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 include "error.php";
 include "database.php";
 include "header.php";
-
+include "comment.php";
+include "like.php";
+$getAllLikes = new Like($pdo);
+$allLikesFromDb = $getAllLikes->getAllLikes();
 
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
@@ -11,69 +16,70 @@ $posts = $showPost->showPost();
 // echo "<pre>";
 // 	print_r($posts);
 // 	echo "</pre>";
-
-foreach ($posts as $row) {
-	$title = $row['title'];
-	$img = $row['img'];
-	$blogText = $row['blogText'];
-	$nrOfLikes = $row['nrOfLikes'];
-	$postDate = $row['postDate'];
-	$username = $row['username'];
-	$postId = $row['id'];
-	$userId = $row['userId'];
-	//$comments = explode(";",$row['comments']);
+foreach ($posts as $post) {
+	$title = $post['title'];
+	//$img = $post['img'];
+	$blogText = $post['blogText'];
+	$nrOfLikes = $post['nrOfLikes'];
+	$postDate = $post['postDate'];
+	$username = $post['username'];
+	$postId = $post['id'];
+	$userId = $post['userId'];
 	// echo "<pre>";
 	// print_r($userId);
 	// echo "</pre>";
+	$count = 0;
+	foreach ($allLikesFromDb as $like) {
+		if ($like['postId'] === $post['id']) {
+			$count++;			
+		}
+	}
+
 	?>
-	<div class='col-md-4 col-sm-12'>
-		<div class='card'>
-			<img class='card-img-top pt-15 img-fluid' src='<?= $img ?>' alt='Card image cap'>
+	<div class='col-md-4 col-sm-8 col-xs-12'>
+		<div class='card margin-t'>
+			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>
 					<?=$blogText ?>
 				</p>
 				<p class="card-text">
-					Made by: <?= $username ?> <?= $postDate ?>
+					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
-				<?php 
-				// include "showComment.php";
+				<?php
+			     include "showComment.php";
 				?>
-				<form action='createComment.php' method='POST'>
+				<form class="createComment">
 					<div class='form-group'>
-						<textarea name='comment' type='text' class='form-control'></textarea>
+						<label>Create comment</label>
+						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button type='submit' class='btn btn-primary'>Submit</button>
+					<button  class="btn btn-outline-primary commentButton" type='submit' class='btn btn-primary'>Submit Comment</button>
 				</form>	 
- 
 				<?php 
-
 				if($_SESSION['userId'] === $userId){
-				?><a href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
-				<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
-					<?php }
-					else if ($_SESSION['isAdmin']){
-						?>
-					<a href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
-					<?php }
-					
-
-					if ($_SESSION['userId']){
-						?>
-					<a href='likePost.php?like=<?=$postId ?>' class="like"> Like</a>  
+					?>
+					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit</a>
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a> 
+					<?php 
+				}
+				else if ($_SESSION['isAdmin']){
+					?>
+					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete</a>  
 					<?php }
 					?>
 
-
-
+					<a class="btn btn-secondary" href='getLike.php?like=<?=$postId ?>' >
+						Like </a>	<?php if($count > 0){
+							echo $count;
+							// echo $count . " by " . $username;
+						} ?>			
 				</div>
 			</div>
 		</div>
-
 		<?php
 	}
-
-include "footer.php";
-?>
+	include "footer.php";
+	?>
