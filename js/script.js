@@ -17,13 +17,19 @@ function displayFromDatabase() {
   $.ajax({
     url: "showComment.php",
     type: "POST",
-    async: false,
     data: {
       "display": 1
     },
+    async: false,
+    dataType: "html",
     success: function() {
       $('.display_p').html();
-    }
+      console.log(response);
+    },
+    error: function (response, error) {
+      console.log(arguments);
+      alert(" shit dont work fix it: " + error);
+    },
   })
 }
 
@@ -35,9 +41,14 @@ $('.commentButton').on('click',function(event){
     method: "POST",
     data: $(this).closest('.createComment').serialize(),
     dataType: "text",
+      error: function (response, error) {
+      console.log(arguments);
+      alert(" it doesnt work... : " + error);
+    },
     success: function() {
       console.log("data");
-      displayFromDatabase();
+      alert("comment Complete");
+      //displayFromDatabase();
     }
   })
 });

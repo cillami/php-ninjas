@@ -1,8 +1,11 @@
 <?php
+
+//session_start();
+
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-require '../config/config.php';
+
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -34,11 +37,16 @@ else{
 
 	//echo "Welcome". "  " .$username;?>
 
+ 
 	<?php include "showpostOnHtml.php";?>
+ 
+ 
 
 	<?php  //include "editPostOnHtml.php";?>
 
+ 
 </div>
 </div>
 </main>
 <?php  include 'footer.php'; ?>
+ 

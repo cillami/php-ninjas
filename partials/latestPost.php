@@ -24,7 +24,7 @@
 							<?= $blogText ?>
 						</p>
 						<p>
-							Made by: <?= $username?> <?=$postDate ?>
+							Posted by: <?= $username?> <?=$postDate ?>
 						</p>
 					</div>
 				</div>
