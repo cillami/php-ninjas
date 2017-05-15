@@ -2,13 +2,12 @@
 
 $showNewComment = new Comment($pdo);
 $comments = $showNewComment->getCommentByPostId($postId);
-json_encode($comments);
 
 foreach ($comments as $comment) {
 	?>
 	<div class="commentstyle">
 		<p class="card-text display_p">
-			<?= $comment['comment'] ?>
+			<?= $comment['comment']?>
 		</p>
 
 		<p class="card-text">

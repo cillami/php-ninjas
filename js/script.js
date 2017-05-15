@@ -13,33 +13,22 @@ $('#submitRegUser').click(function(event){
 });
 
 
-function displayFromDatabase() {
-  $.ajax({
-    method: 'GET',
-    url: 'showComment.php',
-  //när det funkar :
-  success: (response) => {
-    alert("Comment Posted");
-  },
-  //errors
-  error: (error) => {console.log(error)}, //alt .fail((error)=> error)
-});
-}
-
-
-
-  $('.commentButton').on('click',function(event){
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  //$(this).off(event);
+$('.commentButton').on('click',function(event){
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  if ($(this).closest('.createComment').find('textarea').val() === '') {
+    alert("Please type something");
+    return 
+  }
   $.ajax({
     url: "createComment.php",
     method: "POST",
     data: $(this).closest('.createComment').serialize(),
     dataType: "text",
-    success: function() {
-      console.log("data");
-      displayFromDatabase();
+    success: function(response) {
+      //console.log(response);
+      displayFromDatabase(response, $(event.target));
+      $(event.target).closest('.createComment').find('textarea').val('');
     },
     error: function (response){
       console.log(response.status);
@@ -47,6 +36,25 @@ function displayFromDatabase() {
     }
   })
 });
+
+
+function displayFromDatabase(jsonresponse, button) {
+    var comment = JSON.parse(jsonresponse);
+    console.log(comment);
+    var lastComment = button.closest('.card-block').find('.commentstyle').last();
+    var template = `
+    <div class="commentstyle">
+    <p class="card-text display_p">
+    ${comment.comment}
+    </p>
+    <p class="card-text">
+    Comment by: ${comment.username} ${comment.commentDate}
+    </p>
+    </div>
+    `;
+    $(template).insertAfter(lastComment);
+}
+
 
 
 
