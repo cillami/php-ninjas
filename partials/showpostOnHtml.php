@@ -44,7 +44,9 @@ foreach ($posts as $post) {
 	?>
 
 	<div class='col-md-12 col-sm-12'>
+
 		<div class='card margin-t'>
+
 			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
@@ -54,13 +56,15 @@ foreach ($posts as $post) {
 				<p class="card-text color">
 					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
+
+
 				<?php
 				include "showComment.php";
 				?>
 				<form class="createComment">
 					<div class='form-group'>
-						<label>Create comment</label>
-						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
+						<!-- <label>Create comment</label> -->
+						<textarea id="commentArea" placeholder="Write a comment here!" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<button  class="btn btn-success commentButton" type='submit' class='btn btn-primary'>Submit comment <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
@@ -76,15 +80,11 @@ foreach ($posts as $post) {
 						<?php 
 					}
 
-
-
 					else if ($_SESSION['isAdmin']){
 						?>
 						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
 						<?php }
 						?>
-
-
 
 						<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
 						<?php if($count > 0){
