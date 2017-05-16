@@ -26,9 +26,27 @@ class Comment {
 			":userId" => $_SESSION['userId'],
 			":postId" => $_POST['postId'],
 			]);
-           
+
+		return $this->getLatestCommentByPostId($_POST['postId']);
 		//header('Location: /php-ninjas/partials/home.php');
 	} //function end
+
+	public function getLatestCommentByPostId($postId) {
+		$statement = $this->pdo->prepare("
+			SELECT * FROM comment
+			LEFT JOIN user 
+			ON comment.userId = user.userId
+			WHERE comment.postId = :postId
+			ORDER BY comment.commentDate DESC
+			LIMIT 1
+			");
+		$statement->execute([
+			":postId" => $postId
+			]);
+		$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return json_encode($comments[0]);
+	} //function end
+
 
 	public function getCommentByPostId($postId) {
 		$statement = $this->pdo->prepare("

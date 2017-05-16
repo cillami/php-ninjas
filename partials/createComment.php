@@ -4,4 +4,6 @@ include "database.php";
 include "comment.php";
 
 $createPost = new Comment($pdo);
-$createPost->createComment();
+$createdPost= $createPost->createComment();
+echo $createdPost;
+//header('Location: /php-ninjas/partials/home.php');
