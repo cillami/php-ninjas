@@ -1,4 +1,4 @@
-<section class="col-md-4">
+<section class="col-md-12 col-sm-6 col-xs-4">
 	<div class="latestPost">
 		<?php
 		include "error.php";
@@ -15,9 +15,25 @@
 			$postDate = $row['postDate'];
 			$username = $row['username'];
 			?>
-			<div class='col-md-10 col-sm-12 col-xs-12'>
+			<div class='col-md-4 col-sm-4 col-xs-4'>
 				<div class='card lPost margin-t'>
-					<img class='card-img-top pt-15 img-fluid' src='<?= $img ?>' alt='Card image cap'>
+					<!-- <img class='card-img-top pt-15 img-responsive' src='<?= $img  ?>' alt='Card image cap'> -->
+					<?php
+					if (!empty($row['img'])) {
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $img  ?>' alt='Card image cap'>
+						<?php	
+					}
+					else {
+						$default = "./img/default.jpg"
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $default ?>' alt='Card image cap'>
+						<?php
+					}
+					
+					?>
+
+
 					<div class='card-block'>
 						<h4 class='card-title'><?= $title ?></h4>
 						<p class='card-text'>

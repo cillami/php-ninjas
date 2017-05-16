@@ -37,10 +37,24 @@ foreach ($posts as $post) {
 
 	?>
 
-	<div class='col-md-12 col-sm-12'>
+	<div class='col-md-8 col-sm-12'>
 
 		<div class='card margin-t'>
-			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
+			<!-- <img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'> -->
+			<?php
+					if (!empty($post['img'])) {
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $post['img']  ?>' alt='no image added'>
+						<?php	
+					}
+					else {
+						$default = "../img/default.jpg"
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $default ?>' alt='no image added'>
+						<?php
+					}
+					
+					?>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>

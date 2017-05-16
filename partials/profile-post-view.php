@@ -22,7 +22,21 @@ foreach ($allPosts as $row) {
 ?>
   	
      	<div class='card'>
-			<img class='card-img-top pt-15 img-fluid' src='<?= $imgp ?>' alt='Card image cap'>
+			<!-- <img class='card-img-top pt-15 img-fluid' src='<?= $imgp ?>' alt='Card image cap'> -->
+			<?php
+					if (!empty($row['img'])) {
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $imgp  ?>' alt='no image added'>
+						<?php	
+					}
+					else {
+						$default = "../img/default.jpg"
+						?>
+						<img class='card-img-top pt-15 img-responsive' src='<?= $default ?>' alt='no image added'>
+						<?php
+					}
+					
+					?>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $titlep ?></h4>
 				<p class='card-text'>

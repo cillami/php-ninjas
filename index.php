@@ -13,11 +13,19 @@
 
 			<?php
 			include "partials/welcometext.php";
-			include"partials/latestPost.php";
-			include "partials/signup.php";
 			?>
 
 		</div> <!-- ROW -->
+		<div class="row">
+			<?php
+			include "partials/signup.php";
+			?>
+		</div>
+		<div class="row">
+			<?php
+			include"partials/latestPost.php";
+			?>
+		</div>
 	</main>
 
 	<?php
