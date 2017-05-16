@@ -1,6 +1,6 @@
-<div class="col-md-4 col-sm-12">
+<div class="col-md-12 col-sm-12 col-xs-12">
 	<section class="margin-t">
-		<h1 class="text-center">HELLO!</h1>
+<!-- 		<h1 class="text-center">HELLO!</h1> -->
 		<div class="text-center logo">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="261px" height="183px" viewBox="32.506 22.5 261 183" style="enable-background:new 32.506 22.5 261 183;" xml:space="preserve">
 				<defs>
@@ -67,10 +67,12 @@
 				<rect fill="url(#gradient)" x="170.645" y="78.268" width="18.465" height="18.465"></rect>
 			</svg>
 		</div>
-		<span class="line align-middle">ghjk</span>
-		<h4 class="text-center">WELCOME</h4>
-		<h1 class="text-center">NINJA PORTAL</h1>
-		<h6 class="text-center">PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h6>
+		<span class="line align-middle spanEdit"></span>
+		<h3 class="text-center">WELCOME TO THE NINJA FORUM</h3>
+		<h5 class="text-center">Share your day with your friends</h5>
+		<br>
+		<br>
+		<h4 class="text-center">PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h4>
 		<h4 class="text-center">ENJOY YOUR STAY!</h4>
 		</section>
 	</div>

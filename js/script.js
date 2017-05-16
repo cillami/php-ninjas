@@ -26,7 +26,7 @@ $('.commentButton').on('click',function(event){
     data: $(this).closest('.createComment').serialize(),
     dataType: "text",
     success: function(response) {
-      //console.log(response);
+      console.log(response);
       displayFromDatabase(response, $(event.target));
       $(event.target).closest('.createComment').find('textarea').val('');
     },
