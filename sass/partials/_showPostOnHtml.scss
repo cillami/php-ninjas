@@ -1,8 +1,21 @@
 .like {
-    background: lightgrey;
+	background: lightgrey;
 }
 .color > p{
 	background-color: lightsalmon;
+}
+
+.card {
+	/* background-color: black; */
+}
+
+.flexwrap-div {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .heart{
@@ -13,7 +26,7 @@
 .button-container{
 	margin-right: 1rem;
 /*	border: 1px solid lightgrey;*/
-	padding:0.3rem 1rem 0.3rem 0rem;
+padding:0.3rem 1rem 0.3rem 0rem;
 
 }
 .commentButton{
@@ -27,6 +40,6 @@
 }
 
 i[class*="icon"] {
-  margin-left:1rem;
-  line-height: 1;
+	margin-left:1rem;
+	line-height: 1;
 }

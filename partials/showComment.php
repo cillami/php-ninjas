@@ -10,12 +10,12 @@ foreach ($comments as $comment) {
 			<?= $comment['comment']?>
 		</p>
 
-		<p class="card-text">
+		<p class="card-text display_p">
 			Comment by: <?= $comment['username'] ?> <?= $comment['commentDate'] ?>
 			<?php
 			if ($_SESSION['isAdmin']) {
 				?>
-				<a href='deleteComment.php?del=<?=$comment['commentId'] ?>'>Delete</a>
+				<!-- <a href='deleteComment.php?del=<?=$comment['commentId'] ?>'>Delete</a> -->
 				<?php
 			}
 			?>
@@ -24,3 +24,4 @@ foreach ($comments as $comment) {
 	<?php
 }
 ?>
+
