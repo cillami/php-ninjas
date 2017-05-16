@@ -27,7 +27,7 @@ include 'header.php';
     <input type="hidden" name="id" class="form-control" id="blogText" rows="3" value='<?= $data["id"] ?>'> 
 
   </div>
-  <button type="submit" class="btn btn-primary">Save changes</button>
+  <button type="submit" class="btn btn-success">Save changes</button>
 </form>
 </div>
 </section>

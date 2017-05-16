@@ -58,13 +58,13 @@ foreach ($posts as $post) {
 						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button  class="btn btn-outline-primary commentButton" type='submit' class='btn btn-primary'>Submit Comment</button>
+					<button  class="btn btn-success commentButton" type='submit' class='btn btn-primary'>Submit Comment</button>
 				</form>	
 				<div class="button-container d-flex justify-content-end"> 
 					<?php 
 					if($_SESSION['userId'] === $userId){
 						?>
-						<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
+						<a class="btn btn-warning" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
 						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a> 
 						<?php 
 					}
