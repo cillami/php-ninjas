@@ -61,6 +61,7 @@ foreach ($posts as $post) {
 					}
 					
 					?>
+
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>
@@ -69,13 +70,15 @@ foreach ($posts as $post) {
 				<p class="card-text color">
 					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
+
+
 				<?php
 				include "showComment.php";
 				?>
 				<form class="createComment">
 					<div class='form-group'>
-						<label>Create comment</label>
-						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
+						<!-- <label>Create comment</label> -->
+						<textarea id="commentArea" placeholder="Write a comment here!" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
 					<button  class="btn btn-success commentButton" type='submit' class='btn btn-primary'>Submit comment <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>

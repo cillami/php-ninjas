@@ -65,25 +65,19 @@ class Register{
 			$error = "Username already exists! Please choose a new one.";
 			header("Location: /php-ninjas?error=$error");
 		}
-<<<<<<< HEAD
-=======
+
 		else if($arr[0]['email'] == $email){
->>>>>>> 1c961be0b060e2dff7d747448a0996608750fa0e
 
 			$error = "Email-address already exists! Please choose a new one.";
 			header("Location: /php-ninjas?error=$error");
 		}
 
-<<<<<<< HEAD
+
 
 		header('Location: /php-ninjas'); //CHANGE TO FETCH
 
 		//header('Location: /php-ninjas'); //CHANGE TO FETCH
 
-=======
-		// header('Location: /php-ninjas'); //CHANGE TO FETCH
-
->>>>>>> 1c961be0b060e2dff7d747448a0996608750fa0e
 } //end method
 
 } //end class
