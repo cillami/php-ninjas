@@ -90,23 +90,19 @@ foreach ($posts as $post) {
 						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'>Delete post  <span i class="fa fa-trash-o icon-delete" aria-hidden="true"></i></span></a> 
 						<?php 
 					}
-
-
-
 					else if ($_SESSION['isAdmin']){
 						?>
 						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
 						<?php }
 						?>
-
-
-
 						<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
 						<?php if($count > 0){
 							echo $count;
-							?> </div> <?php
+							?> 
+							</div> <?php
 						} ?>			
 					</div>
+				</div>
 				</div>
 			</div>
 			<?php
