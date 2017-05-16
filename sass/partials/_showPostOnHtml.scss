@@ -16,7 +16,26 @@
 	padding:0.3rem 1rem 0.3rem 0rem;
 
 }
+.commentButton{
+	margin-bottom:1.5rem;
+/*	padding:0.3rem;*/
+}
 
 .deletePost{
 	margin-left: 5px;
+/*	  	padding:0.3rem;*/
+/*	padding-right:0rem !important;*/
 }
+.editPost{
+/*	  	padding:0.3rem;*/
+}
+
+/*.postWall{
+	margin-top:2.3rem;
+}*/
+
+i[class*="icon"] {
+  margin-left:1rem;
+  line-height: 1;
+}
+

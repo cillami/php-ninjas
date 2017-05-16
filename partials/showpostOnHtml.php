@@ -16,6 +16,12 @@ $posts = $showPost->showPost();
 // echo "<pre>";
 // 	print_r($posts);
 // 	echo "</pre>";
+
+?>
+<!-- <h2 class="postWall">Post wall</h2> -->
+<?php
+
+
 foreach ($posts as $post) {
 	$title = $post['title'];
 	//$img = $post['img'];
@@ -38,7 +44,6 @@ foreach ($posts as $post) {
 	?>
 
 	<div class='col-md-12 col-sm-12'>
-
 		<div class='card margin-t'>
 			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
 			<div class='card-block'>
@@ -58,16 +63,21 @@ foreach ($posts as $post) {
 						<textarea id="commentArea" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
-					<button  class="btn btn-success commentButton" type='submit' class='btn btn-primary'>Submit Comment</button>
+					<button  class="btn btn-success commentButton" type='submit' class='btn btn-primary'>Submit comment <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 				</form>	
 				<div class="button-container d-flex justify-content-end"> 
+
 					<?php 
 					if($_SESSION['userId'] === $userId){
 						?>
-						<a class="btn btn-warning" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
-						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a> 
+						<a class="btn btn-warning editPost" href='editViewForm.php?edit=<?=$postId ?>'>Edit post  <span i class="fa fa-pencil-square-o icon-edit" aria-hidden="true"></i></span> </a>
+
+						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'>Delete post  <span i class="fa fa-trash-o icon-delete" aria-hidden="true"></i></span></a> 
 						<?php 
 					}
+
+
+
 					else if ($_SESSION['isAdmin']){
 						?>
 						<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
