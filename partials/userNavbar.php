@@ -12,9 +12,9 @@
 <!-- 			<li class="nav-item">
 				<a class="nav-link" href="form.php">Create Post</a>
 			</li> -->
-			<li class="nav-item">
+<!-- 			<li class="nav-item">
 				<a class="nav-link" href="contact.php">Contact</a>
-			</li>
+			</li> -->
 			<li class="nav-item">
 				<a class="nav-link" href="logout.php">Logout</a>
 			</li>
