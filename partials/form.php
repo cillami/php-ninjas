@@ -1,7 +1,3 @@
-<?php
-//require '../config/config.php';
-include 'header.php';
-?>
 <section class="col-md-12 col-sm-12 col-xs-12">
 <div class="formFlex">
 
@@ -24,6 +20,3 @@ include 'header.php';
 
 </div>
 </section>
-<?php
- include 'footer.php';
-?>

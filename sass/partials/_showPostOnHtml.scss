@@ -9,14 +9,14 @@
 	/* background-color: black; */
 }
 
-.flexwrap-div {
+/* .flexwrap-div {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-}
+} */
 
 .heart{
 	color:blue;
@@ -24,11 +24,11 @@
 }
 
 .button-container{
-	margin-right: 1rem;
-/*	border: 1px solid lightgrey;*/
-padding:0.3rem 1rem 0.3rem 0rem;
+	//margin-right: 1rem;
+//padding:0.3rem 1rem 0.3rem 0rem;
 
 }
+
 .commentButton{
 	margin-bottom:1rem;
 }
@@ -36,10 +36,9 @@ padding:0.3rem 1rem 0.3rem 0rem;
 .deletePost{
 	margin-left: 5px;
 }
-.editPost{
-}
 
-i[class*="icon"] {
+
+/* i[class*="icon"] {
 	margin-left:1rem;
 	line-height: 1;
-}
+} */

@@ -32,20 +32,10 @@ else{
 
 	<div class="col-md-8">
 
-
-	<?php //echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>';
-
-	//echo "Welcome". "  " .$username;?>
-
- 
 	<?php include "showpostOnHtml.php";?>
- 
- 
 
-	<?php  //include "editPostOnHtml.php";?>
-
- 
 </div>
+
 </div>
 </main>
 <?php  include 'footer.php'; ?>
