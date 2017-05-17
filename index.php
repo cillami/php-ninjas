@@ -8,6 +8,7 @@
 	<?php
 	include "partials/navbar.php";
 	?>
+
 	<main class="container-fluid con">
 		<div class="row">
 

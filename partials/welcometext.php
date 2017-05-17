@@ -6,7 +6,7 @@
 				<defs>
 					<linearGradient id="gradient">
 						<stop offset="15%" stop-color="#FFE0D2" /> 
-						<stop offset="70%" stop-color="#E8255F" /><!-- #0395a9 -->
+						<stop offset="70%" stop-color="#E8255F" /> --> <!-- #0395a9 -->
 						<stop offset="15%" stop-color="#FFE0D2" />
 					</linearGradient>
 				</defs>
