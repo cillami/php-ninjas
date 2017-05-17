@@ -39,7 +39,7 @@ foreach ($posts as $post) {
 
 	<div class='col-md-12 col-sm-12'>
 
-		<div class='card margin-t'>
+		<div id="post<?= $postId ?>" class='card margin-t'>
 			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
@@ -65,16 +65,24 @@ foreach ($posts as $post) {
 				if($_SESSION['userId'] === $userId){
 					?>
 					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
-					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a> 
+					
+					<form class="delform" method="POST">
+           				 <input type="hidden" name="delbtn" value='<?= $postId ?>'/>
+           				 <input class="btn btn-danger deletePost" id="delPost" type="submit" value="Delete post"/>
+          			</form> 
+
 					<?php 
 				}
 				else if ($_SESSION['isAdmin']){
 					?>
-					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
+					 
+					<form class="delform" method="POST">
+           				 <input type="hidden" name="delbtn" value='<?= $postId ?>'/>
+           				 <input class="btn btn-danger deletePost" id="delPost" type="submit" value="Delete post"/>
+          			</form> 
 					<?php }
 					?>
 
-					
 					
 					<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
 							<?php if($count > 0){
@@ -83,7 +91,6 @@ foreach ($posts as $post) {
 						} ?>			
 				</div>
 			</div>
-		</div>
 		<?php
 	}
 	include "footer.php";
