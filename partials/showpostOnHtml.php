@@ -40,28 +40,23 @@ foreach ($posts as $post) {
 			$count++;			
 		}
 	}
-
+//Fixa imorgon: Varför text längd på title eller blogText i en Post bestämmer bredd på card? (Eddie)
 	?>
-
-
 	<div class='col-md-8 col-sm-12'>
 		<div class='card margin-t'>
-			<!-- <img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'> -->
 			<?php
-					if (!empty($post['img'])) {
-						?>
-						<img class='card-img-top pt-15 img-responsive' src='<?= $post['img']  ?>' alt='no image added'>
-						<?php	
-					}
-					else {
-						$default = "../img/default.jpg"
-						?>
-						<img class='card-img-top pt-15 img-responsive' src='<?= $default ?>' alt='no image added'>
-						<?php
-					}
-					
-					?>
-
+			if (!empty($post['img'])) {
+				?>
+				<img class='card-img-top pt-15 img-responsive' src='<?= $post['img']  ?>' alt='no image added'>
+				<?php	
+			}
+			else {
+				$default = "../img/default.jpg"
+				?>
+				<img class='card-img-top pt-15 img-responsive' src='<?= $default ?>' alt='no image added'>
+				<?php
+			}			
+			?>
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>
@@ -70,14 +65,15 @@ foreach ($posts as $post) {
 				<p class="card-text color">
 					Posted by: <?= $username ?> <?= $postDate ?>
 				</p>
-
-
+				<?php
+				?>
+				<div class="comment-wrap">
 				<?php
 				include "showComment.php";
 				?>
+				</div>
 				<form class="createComment">
 					<div class='form-group'>
-						<!-- <label>Create comment</label> -->
 						<textarea id="commentArea" placeholder="Write a comment here!" required="required" name='comment' type='text' class='form-control'></textarea>
 					</div>
 					<input type='hidden' name='postId' value='<?= $postId ?>' />
@@ -102,13 +98,13 @@ foreach ($posts as $post) {
 						<?php if($count > 0){
 							echo $count;
 							?> 
-							</div> <?php
-						} ?>			
-					</div>
-				</div>
+						</div> <?php
+					} ?>			
 				</div>
 			</div>
-			<?php
-		}
-		include "footer.php";
-		?>
+		</div>
+	</div>
+	<?php
+}
+include "footer.php";
+?>
