@@ -27,8 +27,21 @@ body {
 	align-items: center;
 }
 
+.input-width {
+	width: 20rem;
+}
+
 .margin-t {
 	margin-top: 1rem;
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
+}
+
+.spanEdit {
+	margin: 0 auto;
+	margin-bottom: 2rem;
 }
 
 .inputLabel {
@@ -36,13 +49,25 @@ body {
 }
 
 .latestPost {
-	display: flex;
-	flex-direction: column;
+	width: 100%;
+	height: auto;
+	/* display: flex;
+	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: center; */
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .lPost {
+	display: inline-block;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -53,16 +78,22 @@ body {
 	padding-right: 15px !important;
 	padding-left: 15px !important;
 }
+
+.img-responsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
 .hide {
 	display:none;
 }
 
 .line{
-	
 	display: block;
 	height: 5px;
-	width: 150px;
-	background-color:#FFE0D2;
+	width: 250px;
+	background-color:#FFE0D2; 
 }
 
 .logo{
