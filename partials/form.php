@@ -8,18 +8,16 @@ include 'header.php';
 <form action="createPost.php" method="POST">
   <div class="form-group">
     <h2>Create new post</h2>
-    <label for="exampleInputEmail1">Title</label>
-    <input name="title" type="text" class="form-control" id="blogTitle" placeholder="Enter Title">
+    <br>
+    <input name="title" type="text" class="form-control" id="blogTitle" placeholder="Enter title">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Image</label>
-    <input name="img" type="text" class="form-control" id="blogImg" placeholder="Insert http-link here">
+    <input name="img" type="text" class="form-control" id="blogImg" placeholder="Image: insert http-link">
   </div>
   <div class="form-group">
-    <label for="exampleTextarea">Write Post</label>
-    <textarea name="blogText" class="form-control" id="blogText" rows="3"></textarea>
+    <textarea name="blogText" class="form-control" id="blogText" rows="3" placeholder="Write post"></textarea>
   </div>
-  <button type="submit" class="btn btn-success">Submit post <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+  <button type="submit" class="btn btn-success btn-block">Submit post <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 </form>
 
 </div>
