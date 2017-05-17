@@ -14,8 +14,6 @@ $posts = $showPost->showPost();
 ?>
 
 <?php
-
-
 foreach ($posts as $post) {
 	$title = $post['title'];
 	//$img = $post['img'];
@@ -35,7 +33,7 @@ foreach ($posts as $post) {
 		}
   } //FOREACh FOR LIKES
   ?>
-		<div class='col-md-4 col-sm-12'>
+		<div class='col-md-6 col-sm-12'>
 			<div class='card margin-t'>
 				<?php
 				if (!empty($post['img'])) {

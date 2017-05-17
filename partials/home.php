@@ -1,11 +1,7 @@
 <?php
-
-//session_start();
-
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -29,14 +25,10 @@ else{
 		<div class="col-md-4">
 			<?php include "form.php";?>
 		</div>
-
 		<div class="col-md-8">
-
 			<?php include "showpostOnHtml.php";?>
-
 		</div>
 
 	</div>
 </main>
 <?php  include 'footer.php'; ?>
-
