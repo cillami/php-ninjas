@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include "error.php";
 include "database.php";
-include "header.php";
 include "comment.php";
 include "like.php";
 $getAllLikes = new Like($pdo);
@@ -42,13 +41,6 @@ foreach ($posts as $post) {
 	}
 //Fixa imorgon: Varför text längd på title eller blogText i en Post bestämmer bredd på card? (Eddie)
 	?>
-
-
-	<div class='col-md-12 col-sm-12'>
-
-		<div id="post<?= $postId ?>" class='card margin-t'>
-			<img class='card-img-top pt-15 img-fluid' src='<?= $post['img'] ?>' alt='No image added'>
-
 	<div class='col-md-8 col-sm-12'>
 		<div class='card margin-t'>
 			<?php
@@ -64,7 +56,6 @@ foreach ($posts as $post) {
 				<?php
 			}			
 			?>
-
 			<div class='card-block'>
 				<h4 class='card-title'> <?= $title ?></h4>
 				<p class='card-text'>
@@ -89,33 +80,6 @@ foreach ($posts as $post) {
 				</form>	
 				<div class="button-container d-flex justify-content-end"> 
 
-
-				<?php 
-				if($_SESSION['userId'] === $userId){
-					?>
-					<a class="btn btn-info" href='editViewForm.php?edit=<?=$postId ?>'> Edit post</a>
-					
-					<form class="delform" method="POST">
-           				 <input type="hidden" name="delbtn" value='<?= $postId ?>'/>
-           				 <input class="btn btn-danger deletePost" id="delPost" type="submit" value="Delete post"/>
-          			</form> 
-
-					<?php 
-				}
-				else if ($_SESSION['isAdmin']){
-					?>
-					 
-					<form class="delform" method="POST">
-           				 <input type="hidden" name="delbtn" value='<?= $postId ?>'/>
-           				 <input class="btn btn-danger deletePost" id="delPost" type="submit" value="Delete post"/>
-          			</form> 
-					<?php }
-					?>
-
-					
-					<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
-							<?php if($count > 0){
-
 					<?php 
 					if($_SESSION['userId'] === $userId){
 						?>
@@ -131,23 +95,14 @@ foreach ($posts as $post) {
 						?>
 						<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
 						<?php if($count > 0){
-
 							echo $count;
 							?> 
 						</div> <?php
 					} ?>			
 				</div>
 			</div>
-
-		<?php
-	}
-	include "footer.php";
-	?>
-
 		</div>
 	</div>
 	<?php
 }
-include "footer.php";
 ?>
-
