@@ -26,17 +26,17 @@ else{
 ?> 
 <main class="container-fluid con">
 	<div class="row">
-	<div class="col-md-4">
-		<?php include "form.php";?>
+		<div class="col-md-4">
+			<?php include "form.php";?>
+		</div>
+
+		<div class="col-md-8">
+
+			<?php include "showpostOnHtml.php";?>
+
+		</div>
+
 	</div>
-
-	<div class="col-md-8">
-
-	<?php include "showpostOnHtml.php";?>
-
-</div>
-
-</div>
 </main>
 <?php  include 'footer.php'; ?>
- 
+

@@ -98,7 +98,6 @@ foreach ($posts as $post) {
 				</div>
 			</div>
 		</div>
-	</div>
 	<?php
 }  //FOREACH FOR POSTS
 ?>
