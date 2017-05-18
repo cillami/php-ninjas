@@ -6,7 +6,7 @@
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="32.506 22.5 261 183" style="enable-background:new 32.506 22.5 261 183;" xml:space="preserve">
 			<defs>
 				<linearGradient id="gradient">
-					<stop offset="15%" stop-color="#FFE0D2" /> 
+					<stop offset="15%" stop-color="#black" /> 
 					<stop offset="70%" stop-color="white" /><!-- #0395a9 -->
 					<stop offset="15%" stop-color="#FFE0D2" />
 				</linearGradient>
@@ -80,9 +80,9 @@
 				<!--<input name="signin" class="form-control mr-sm-2" type="button" value="Sign In">-->
 				<button class="btn btn-success my-2 my-sm-0" type="submit">Sign in</button> 
 			</form>
-			<li class="nav-item">
+<!-- 			<li class="nav-item">
 				<a class="nav-link" href="partials/contact.php">Contact</a>
-			</li>
+			</li> -->
 		</div>
 	</ul>
 </div>

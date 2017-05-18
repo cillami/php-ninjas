@@ -6,7 +6,7 @@
 				<defs>
 					<linearGradient id="gradient">
 						<stop offset="15%" stop-color="#FFE0D2" /> 
-						<stop offset="70%" stop-color="#E8255F" /><!-- #0395a9 -->
+						<stop offset="70%" stop-color="#E8255F" /> --> <!-- #0395a9 -->
 						<stop offset="15%" stop-color="#FFE0D2" />
 					</linearGradient>
 				</defs>
@@ -68,11 +68,9 @@
 			</svg>
 		</div>
 		<span class="line align-middle spanEdit"></span>
-		<h3 class="text-center">WELCOME TO THE NINJA FORUM</h3>
+		<h1 class="text-center">WELCOME TO THE NINJA FORUM</h1>
 		<h5 class="text-center">Share your day with your friends</h5>
 		<br>
-		<br>
-		<h4 class="text-center">PLEASE SIGN UP TO BE ABLE TO USE OUR SERVICE</h4>
 		<h4 class="text-center">ENJOY YOUR STAY!</h4>
 		</section>
 	</div>

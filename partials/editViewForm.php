@@ -11,12 +11,13 @@ include 'header.php';
 
   <div class="form-group">
       <h2>Edit your post</h2>
-    <label for="editViewFormTitle">Title</label>
+      <br>
+    <label for="editViewFormTitle">Enter title</label>
 
   <input name="title" type="text" class="form-control" id="blogTitle" placeholder="Enter Title" value="<?= $data['title'] ?>" >
   </div>
   <div class="form-group">
-    <label for="editViewFormImage">Image</label>
+    <label for="editViewFormImage">Image, insert http-link</label>
     <input name="img" type="text" class="form-control" id="blogImg" placeholder="Insert http-link here" value="<?= $data['img'] ?>">
   </div>
   <div class="form-group">
