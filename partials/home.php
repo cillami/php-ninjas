@@ -26,7 +26,7 @@ else{
 			<?php include "form.php";?>
 		</div>
 		<div class="col-md-8">
-			<?php include "showpostOnHtml.php";?>
+				<?php include "showpostOnHtml.php";?>
 		</div>
 
 	</div>

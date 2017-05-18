@@ -9,14 +9,15 @@
 	/* background-color: black; */
 }
 
-/* .flexwrap-div {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-} */
+.showPostHeader {
+	margin-top: 2.5rem;
+	text-align: center;
+	margin-right: 22rem;
+} 
+
+.center-div {
+	margin: 0 auto;
+}
 
 .heart{
 	color:blue;
