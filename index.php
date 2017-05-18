@@ -17,12 +17,12 @@
 			?>
 
 		</div> <!-- ROW -->
-		<div class="row">
+		<div class="row signUpDiv">
 			<?php
 			include "partials/signup.php";
 			?>
 		</div>
-		<div class="row">
+		<div class="row latestPostDiv">
 			<?php
 			include"partials/latestPost.php";
 			?>

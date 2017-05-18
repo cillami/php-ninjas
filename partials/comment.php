@@ -54,7 +54,7 @@ class Comment {
 			LEFT JOIN user 
 			ON comment.userId = user.userId
 			WHERE comment.postId = :postId
-			ORDER BY comment.commentDate DESC
+			/*ORDER BY comment.commentDate DESC*/
 			");
 		$statement->execute([
 			":postId" => $postId

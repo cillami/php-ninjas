@@ -105,13 +105,15 @@ public function savePost(){
 
 }  
 public function deletePost(){
-			// var_dump($_POST['edit']);
+	//var_dump($_POST['delbtn']);
+	
 	if(isset($_GET['del'])){
-
+        
 		$id = $_GET['del'];
-		// var_dump($id);
-		 //get the post with the right edit-id
 
+		 var_dump($id);
+		 //get the post with the right edit-id
+         var_dump($this->pdo);
 		$statement = $this->pdo->prepare("
 			DELETE FROM post 
 			WHERE id = :id
@@ -123,7 +125,7 @@ public function deletePost(){
 
 		return $statement;
 	}
-	//header('Location: /php-ninjas/partials/home.php');  
+	header('Location: /php-ninjas/partials/home.php');  
 
 }  
 

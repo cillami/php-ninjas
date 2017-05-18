@@ -12,7 +12,9 @@
 
       ?>
     </div>
-      <p id="message"></p>
+      <p id="message"> 
+      Please sign up to be able to use our service!</p>
+
       <form id="RegUserForm" method="POST">
         <div class="form-group">
          <!--  <label class="inputLabel" for="username">Username</label> -->
