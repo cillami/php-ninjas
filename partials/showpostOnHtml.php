@@ -85,7 +85,7 @@ foreach ($posts as $post) {
 							<?php 
 						}
 						?>
-						<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:red;"></i></a>
+						<a class="ml-auto" href='getLike.php?like=<?=$postId ?>'> <i class="fa fa-heart fa-2x heart" style="color:#cc0000;"></i></a>
 						<?php if($count > 0){
 							echo $count;
 							?> 

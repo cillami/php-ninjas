@@ -10,11 +10,15 @@
 	?>
 
 	<main class="container-fluid con">
-		<div class="row">
+	<div class=" bg img-responsive">
+	<img src="img/logovit.png" class="logo">
+	<h2 id="logotext">Share your life with your friends wherever you are</h2>
 
-			<?php
+</div>
+		<div class="row">
+		<?php
 			include "partials/welcometext.php";
-			?>
+			?> 
 
 		</div> <!-- ROW -->
 		<div class="row signUpDiv">
@@ -23,9 +27,9 @@
 			?>
 		</div>
 		<div class="row latestPostDiv">
-			<?php
+ 			<?php
 			include"partials/latestPost.php";
-			?>
+			?> 
 		</div>
 	</main>
 

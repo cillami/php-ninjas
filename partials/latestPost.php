@@ -1,5 +1,5 @@
 <section class="col-md-12 col-sm-6 col-xs-4">
-<h5 class="latestPostText">Latest posts</h5>
+<h5 class="latestPostText white">Latest posts</h5>
 	<div class="latestPost">
 		<?php
 		include "error.php";
