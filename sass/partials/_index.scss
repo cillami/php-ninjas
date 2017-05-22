@@ -9,7 +9,7 @@
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Roboto Condensed', sans-serif;
-	font-weight: 900;
+/*	font-weight: 900;*/
 }
 
 .bg { 
@@ -46,16 +46,17 @@ position: relative;
 	.logotext {
 	top: 31rem;
 	text-align: center;
-    font:1rem;
 	}
 }
 
 .welcome{
+	font-family: 'Roboto Condensed', sans-serif !important;
 color:white;
 font-size: 3rem;
 }
 @media screen and (max-width: 543px){
 	.welcome {
+	font-family: 'Roboto Condensed', sans-serif !important;
     font-size:2rem;
 	}
 }
