@@ -12,7 +12,7 @@
 	<main class="container-fluid con">
 	<div class=" bg img-responsive">
 	<img src="img/logovit.png" class="logo">
-	<h2 id="logotext">Share your life with your friends wherever you are</h2>
+	<h2 class="logotext">Share your life with your friends <br>wherever you are!</h2>
 
 </div>
 		<div class="row">

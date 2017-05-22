@@ -3,7 +3,7 @@
 
 <form action="createPost.php" method="POST">
   <div class="form-group">
-    <h2>Create new post</h2>
+    <h2 class="white">Create new post</h2>
     <!-- <label for="exampleInputEmail1">Title</label> -->
     <input name="title" type="text" class="form-control" id="blogTitle" placeholder="Enter Title">
   </div>

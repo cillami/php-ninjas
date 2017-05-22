@@ -10,7 +10,7 @@ include 'header.php';
 <form action="savePost.php" method="POST">
 
   <div class="form-group">
-      <h2>Edit your post</h2>
+      <h2 class="white">Edit your post</h2>
       <br>
     <label for="editViewFormTitle">Enter title</label>
 
