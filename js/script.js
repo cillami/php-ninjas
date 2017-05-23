@@ -8,9 +8,15 @@ $('#submitRegUser').click(function(event){
   dataType: "text",
   success: function(){
     $('#message').text('Welcome! You are now registered, please sign in!')
-  }
+
+  },    
+  error: function (response){
+      console.log(response.status);
+      alert(" it doesnt work... : ");
+    }
 })
 });
+
 
 
 $('.commentButton').on('click',function(event){

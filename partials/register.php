@@ -28,6 +28,7 @@ class Register{
 	// }
 
 	public function createUser(){
+
  
 		$email = $_POST['email'];
 		$user = $_POST['username'];
@@ -39,16 +40,14 @@ class Register{
 			$hash = password_hash($_POST['password'], PASSWORD_DEFAULT); 
 
 			$statement = $this->pdo->prepare("
-				INSERT INTO user (username, password, email, firstname, lastname)
-				VALUES (:username, :password, :email, :firstname, :lastname)");
+				INSERT INTO user (username, password, email)
+				VALUES (:username, :password, :email)");
 
 //Execute statement, fetch data
 			$statement->execute([
 				":username" => $_POST['username'],
 				":password" => $hash,
-				":email" => $_POST['email'],
-				":firstname" => $_POST['firstname'],
-				":lastname" => $_POST['lastname']
+				":email" => $_POST['email']
 				]);
 			
 			// echo'<script>window.location="../";</script>';
@@ -57,7 +56,7 @@ class Register{
 
 			$error = "Username and email-address already exists! Please try again.";
 			// $this->alert("Username and email-address already exists! Please try again.");
-			// echo'<script>window.location="../";</script>';
+
 			header("Location: /php-ninjas?error=$error");
 		}
 		else if($arr[0]['username'] == $user){
