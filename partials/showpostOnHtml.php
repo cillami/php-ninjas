@@ -12,7 +12,7 @@ $allLikesFromDb = $getAllLikes->getAllLikes();
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
 ?>
-<h1 class="showPostHeader margin-t">NINJAGRAM FEED</h1>
+<h1 class="showPostHeader margin-t"> -> DIGI LIFE FEED <- </h1>
 <?php
 foreach ($posts as $post) {
 	$title = $post['title'];
@@ -35,7 +35,7 @@ foreach ($posts as $post) {
   ?>
 
   <div class='col-md-8 col-sm-12 col-xs-12'>
-  	<div class='card margin-t center-div'>
+  	<div class='card margin-t'>
   		<?php
   		if (!empty($post['img'])) {
   			?>

@@ -30,14 +30,14 @@
           <!-- <label class="inputLabel" for="email">Email</label> -->
           <input name="email" type="email" class="form-control input-width" id="email" placeholder="Email">
         </div>
-      <!--   <div class="form-group">
-          <label class="inputLabel" for="firstname">Firstname</label>
+        <div class="form-group">
+          <!-- <label class="inputLabel" for="firstname">Firstname</label> -->
           <input name="firstname" type="text" class="form-control" id="firstname" placeholder="">
         </div>
         <div class="form-group">
-          <label class="inputLabel" for="firstname">Lastname</label>
+        <!--   <label class="inputLabel" for="firstname">Lastname</label> -->
           <input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
-        </div> -->
+        </div>
         <button type="submit" class="btn btn-success btn-block" id="submitRegUser">Sign up!</button>
       </form>
   </section>
