@@ -12,7 +12,7 @@ $allLikesFromDb = $getAllLikes->getAllLikes();
 $showPost = new Post($pdo);
 $posts = $showPost->showPost();
 ?>
-<h1 class="showPostHeader margin-t"> -> DIGI LIFE FEED <- </h1>
+<!-- <h1 class="showPostHeader margin-t"> -> DIGI LIFE FEED <- </h1> -->
 <?php
 foreach ($posts as $post) {
 	$title = $post['title'];

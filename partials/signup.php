@@ -41,6 +41,7 @@
           <input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
         </div> -->
         <input type="submit" class="btn btn-success btn-block" value="Register">
+                <!-- <input type="submit" class="btn btn-success btn-block fa" value="Register &#xf044;"> -->
       </form>
   </section>
 </div>
