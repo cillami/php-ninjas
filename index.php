@@ -1,4 +1,5 @@
 	<?php
+	session_start();
 	include "partials/headerIndex.php";
 	include "partials/error.php";
 	include "partials/database.php";
