@@ -21,16 +21,17 @@ class SignIn{
 			$username = $_POST["username"];
 			$password = $_POST["password"];
 
-			$statement = $this->pdo->prepare("SELECT * FROM user WHERE username = :username");
+			$statement = $this->pdo->prepare("SELECT * FROM user WHERE username = :username OR password = :password");
 
-			$statement->execute([":username" => $username]);
+			$statement->execute([":username" => $username, 
+				":password" => $password]);
 			$data = $statement->fetch(PDO::FETCH_ASSOC);
 			$_SESSION['isAdmin'] = $data['isAdmin'];
 			$_SESSION['userId'] = $data['userId'];
 			$_SESSION['username'] = $data['username'];
 
-			if ($data){
-
+			if (isset($data)){
+				//var_dump($data);
 				if (password_verify($password, $data['password'])) {
 					// echo 'Password is valid!';
 					$_SESSION["username"]= $username ;
@@ -45,16 +46,17 @@ class SignIn{
 					else{
 						$_SESSION['username'] = $username;						
 						header("Location: /php-ninjas/partials/home.php"); //user 
-				}
-			} 
+					}
+				} 
 
-			else {
-				// echo 'Invalid password.';
+				else {
+					//var_dump("hej");
+			    //echo 'Invalid password.';
+			    //echo '<script>window.location="../";</script>';
 				header("Location: ../index.php");
-
+				}
 			}
 		}
-	}
 
 }// siginIn User function end
 
