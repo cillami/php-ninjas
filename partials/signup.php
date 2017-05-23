@@ -40,7 +40,7 @@
           <label class="inputLabel" for="firstname">Lastname</label>
           <input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
         </div> -->
-        <input type="submit" class="btn btn-success btn-block" value="submit">
+        <input type="submit" class="btn btn-success btn-block" value="Register">
       </form>
   </section>
 </div>
