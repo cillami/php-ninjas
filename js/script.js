@@ -58,8 +58,9 @@ function displayFromDatabase(jsonresponse, button) {
 
 
 
-$("#delPost").click(function(event){
+$(".delPost").click(function(event){
  event.preventDefault();
+ event.stopImmediatePropagation();
    $.ajax({
   url: "../partials/deletePost.php",
   method: "POST",
@@ -70,8 +71,9 @@ $("#delPost").click(function(event){
   var x = $('input[name=delbtn]').val();
 
   var p = document.getElementById("post"+x);
-     
-      p.remove();
+
+      p.innerHTML = "";
+
 
   },
   error: function(){

@@ -20,7 +20,7 @@ gulp.task('sass', function () {
 gulp.task('browser-sync', ['sass'], function() {
 
     browserSync.init({
-        browser: "chrome",
+        browser: "google chrome",
         proxy: "http://localhost:8888/php-ninjas"
     });
 

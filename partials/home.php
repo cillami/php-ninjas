@@ -1,11 +1,7 @@
 <?php
-
-//session_start();
-
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-
 include 'header.php';
 include 'error.php';
 include 'database.php';
@@ -26,27 +22,13 @@ else{
 ?> 
 <main class="container-fluid con">
 	<div class="row">
-	<div class="col-md-4">
-		<?php include "form.php";?>
+		<div class="col-md-4">
+			<?php include "form.php";?>
+		</div>
+		<div class="col-md-8">
+				<?php include "showpostOnHtml.php";?>
+		</div>
+
 	</div>
-
-	<div class="col-md-8">
-
-
-	<?php //echo "Welcome"."  ". '<a href="profile.php">'. $username .'</a>';
-
-	//echo "Welcome". "  " .$username;?>
-
- 
-	<?php include "showpostOnHtml.php";?>
- 
- 
-
-	<?php  //include "editPostOnHtml.php";?>
-
- 
-</div>
-</div>
 </main>
 <?php  include 'footer.php'; ?>
- 

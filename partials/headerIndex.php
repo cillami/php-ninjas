@@ -7,5 +7,3 @@
 	<title>PHP NINJAGRAM</title>
 </head>
 <body>
-
-<!--<?= ROOT_DIR ?>-->

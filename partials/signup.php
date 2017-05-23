@@ -12,7 +12,9 @@
 
       ?>
     </div>
-      <p id="message"></p>
+      <p id="message"> 
+<!--       Please sign up to be able to use our service!</p> -->
+
       <form id="RegUserForm" method="POST">
         <div class="form-group">
          <!--  <label class="inputLabel" for="username">Username</label> -->
@@ -34,7 +36,7 @@
           <label class="inputLabel" for="firstname">Lastname</label>
           <input name="lastname" type="text" class="form-control" id="firstname" placeholder="">
         </div> -->
-        <button type="submit" class="btn btn-primary btn-block" id="submitRegUser">Sign up!</button>
+        <button type="submit" class="btn btn-success btn-block" id="submitRegUser">Sign up!</button>
       </form>
   </section>
 </div>

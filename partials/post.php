@@ -1,6 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-	session_start();
+	// session_start();
 }
 include "error.php";
 include "database.php";
@@ -105,11 +105,11 @@ public function savePost(){
 
 }  
 public function deletePost(){
-	var_dump($_POST['delbtn']);
+	//var_dump($_POST['delbtn']);
 	
-	if(isset($_POST['delbtn'])){
+	if(isset($_GET['del'])){
         
-		$id = $_POST['delbtn'];
+		$id = $_GET['del'];
 
 		 var_dump($id);
 		 //get the post with the right edit-id
@@ -125,7 +125,7 @@ public function deletePost(){
 
 		return $statement;
 	}
-	//header('Location: /php-ninjas/partials/home.php');  
+	header('Location: /php-ninjas/partials/home.php');  
 
 }  
 
