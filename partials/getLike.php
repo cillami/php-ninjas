@@ -13,7 +13,7 @@ if ($_SESSION['userId']){
 
 	$id = $_GET['like'];
 
-	if($data[0]['postId'] == $id){
+	if(isset($data[0]['postId']) == $id){
 
 		$deleteLike = new Like($pdo);
 		$deleteLike->deleteLike();
