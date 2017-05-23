@@ -74,7 +74,7 @@ class Register{
 
 
 
-		// header('Location: /php-ninjas'); //CHANGE TO FETCH
+		header('Location: /php-ninjas'); //CHANGE TO FETCH
 
 		//header('Location: /php-ninjas'); //CHANGE TO FETCH
 
