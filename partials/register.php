@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include "error.php";
 include "database.php";
 
@@ -30,12 +29,10 @@ class Register{
 
 	public function createUser(){
 
- 
 		$email = $_POST['email'];
 		$user = $_POST['username'];
 
 		$arr = $this->userInDb();
-		// var_dump($arr[0]['username'] );
 
 		if(count($arr) === 0)
 		{
@@ -52,13 +49,11 @@ class Register{
 				":email" => $_POST['email']
 				]);
 			
-			// echo'<script>window.location="../";</script>';
+
+
+			echo'<script>window.location="../";</script>';
 		}
 		else if($arr[0]['username'] == $user && $arr[0]['email'] == $email){
-			// var_dump($arr[0]['username'] );
-			// var_dump($user);
-			// var_dump($arr[0]['email']);
-			// var_dump($email);
 
 			$error = "Username and email-address already exists! Please try again.";
 			header("Location: /php-ninjas?error=$error");
@@ -79,7 +74,7 @@ class Register{
 
 
 
-		header('Location: /php-ninjas'); //CHANGE TO FETCH
+		// header('Location: /php-ninjas'); //CHANGE TO FETCH
 
 		//header('Location: /php-ninjas'); //CHANGE TO FETCH
 
