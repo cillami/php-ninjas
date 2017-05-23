@@ -6,7 +6,11 @@
 
 .flexPost {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.margin-t {
+	margin-top: 3rem;
 }

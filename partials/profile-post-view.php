@@ -10,10 +10,12 @@ $allPosts = $profile->profileAllPosts($_SESSION['userId']);
 				<?php $username = $_SESSION["username"];
 				echo "<h4>" .ucfirst($username)."'s Profile <h4>";
 				?>
-				<a class="nav-link" href="home.php">Back to homepage</a>
+				<a class="linken" href="home.php" style="color:black;">Back to homepage</a>
 			</div>
+
 			<div class="col-md-4 col-sm-12">
-			<section class="flexPost">
+			
+<!-- 			<section class="flexPost"> -->
 					<?php 
 					foreach ($allPosts as $row) {
 						$titlep = $row['title'];
@@ -23,7 +25,7 @@ $allPosts = $profile->profileAllPosts($_SESSION['userId']);
 						$postDatep = $row['postDate'];
 						?>
 
-						<div class='card margin-t'>
+						<div class='card'>
 							<!-- <img class='card-img-top pt-15 img-fluid' src='<?= $imgp ?>' alt='Card image cap'> -->
 							<?php
 							if (!empty($row['img'])) {
@@ -48,14 +50,16 @@ $allPosts = $profile->profileAllPosts($_SESSION['userId']);
 									Posted on: <?= $postDatep ?>
 								</p>	
 							</div>
-						</div>
+						
 
 						<?php
 					}
 
 					?>
-				</section>
+					</div> <!-- col md-->
+<!-- 				</section> -->
+
 			</div>
-		</div>
+		</div> <!-- row slutar-->
 	</div>
 </body>
