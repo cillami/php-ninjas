@@ -17,7 +17,7 @@
 			$username = $row['username'];
 			?>
 			<div class='col-md-4 col-sm-4 col-xs-4'>
-				<div class='card lPost margin-t'>
+				<div class='card lPost'>
 					<!-- <img class='card-img-top pt-15 img-responsive' src='<?= $img  ?>' alt='Card image cap'> -->
 					<?php
 					if (!empty($row['img'])) {

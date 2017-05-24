@@ -1,6 +1,7 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
 	 session_start();
+
 }
 include "error.php";
 include "database.php";
@@ -113,6 +114,7 @@ public function deletePost(){
         
     $id = $_POST['delbtn'];
 
+
      //var_dump($id);
      //get the post with the right edit-id
          var_dump($this->pdo);
@@ -128,6 +130,7 @@ public function deletePost(){
     return $id;
   }
   //header('Location: /php-ninjas/partials/home.php');
+
 
 }  
 
