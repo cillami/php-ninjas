@@ -57,30 +57,27 @@ function displayFromDatabase(jsonresponse, button) {
 
 
 
-
-$(".delPost").click(function(event){
- event.preventDefault();
- event.stopImmediatePropagation();
+$( document ).ready(function() {
+$( ".container-fluid" ).delegate( ".delPost", "click", function() {
+   event.preventDefault();
+    //console.log($(this));
+  var buttonCnt= $(this);
    $.ajax({
   url: "../partials/deletePost.php",
   method: "POST",
-  data:   $(".delform").serialize(),
+  data:   $(this).parent().serialize(),
   dataType: "text",
   success: function(data){
-
-  var x = $('input[name=delbtn]').val();
-
-  var p = document.getElementById("post"+x);
-
-      p.innerHTML = "";
-
-
+  console.log(buttonCnt);
+  buttonCnt.closest(".card").remove();
+  
   },
   error: function(){
       alert(" it doesnt work... : ");
     }
-})
+});
 });
 
+});
 
 

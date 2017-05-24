@@ -21,4 +21,11 @@
 	margin:4rem;
 }
 
- 
+ .delPost{
+   
+    position:relative;
+}
+input[type="submit"] {
+    font-family: FontAwesome;
+    content: "&#xf014;";
+}

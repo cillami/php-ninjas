@@ -1,6 +1,6 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-	// session_start();
+	 session_start();
 }
 include "error.php";
 include "database.php";
@@ -104,28 +104,30 @@ public function savePost(){
 	header('Location: /php-ninjas/partials/home.php');  
 
 }  
+  
+
 public function deletePost(){
-	//var_dump($_POST['delbtn']);
-	
-	if(isset($_GET['del'])){
+  //var_dump($_POST['delbtn']);
+  
+  if(isset($_POST['delbtn'])){
         
-		$id = $_GET['del'];
+    $id = $_POST['delbtn'];
 
-		 var_dump($id);
-		 //get the post with the right edit-id
+     //var_dump($id);
+     //get the post with the right edit-id
          var_dump($this->pdo);
-		$statement = $this->pdo->prepare("
-			DELETE FROM post 
-			WHERE id = :id
-			");
+    $statement = $this->pdo->prepare("
+      DELETE FROM post 
+      WHERE id = :id
+      ");
 
-		$statement->execute([
-			":id" => $id
-			]);
+    $statement->execute([
+      ":id" => $id
+      ]);
 
-		return $statement;
-	}
-	header('Location: /php-ninjas/partials/home.php');  
+    return $id;
+  }
+  //header('Location: /php-ninjas/partials/home.php');
 
 }  
 

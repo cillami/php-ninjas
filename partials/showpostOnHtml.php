@@ -35,7 +35,7 @@ foreach ($posts as $post) {
   ?>
 
   <div class='col-md-8 col-sm-12 col-xs-12'>
-  	<div class='card margin-t'>
+  	<div id="<?= $postId ?>" class='card margin-t'>
   		<?php
   		if (!empty($post['img'])) {
   			?>
@@ -75,14 +75,21 @@ foreach ($posts as $post) {
   				<?php 
   				if($_SESSION['userId'] === $userId){
   					?>
-  					<a class="btn btn-warning editPost" href='editViewForm.php?edit=<?=$postId ?>'>Edit post  <span i class="fa fa-pencil-square-o icon-edit" aria-hidden="true"></i></span> </a>
+  					<a class="btn btn-warning editPost" href='editViewForm.php?edit=<?=$postId ?>'>Edit post  <span> <i class="fa fa-pencil-square-o icon-edit" aria-hidden="true"></i></span> </a>
 
-  					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'>Delete post  <span i class="fa fa-trash-o icon-delete" aria-hidden="true"></i></span></a> 
+  					<form class="delform" method="POST">
+                   		<input type="hidden" name="delbtn" value='<?= $postId ?>'/>
+                   		<button class="btn btn-danger deletePost delPost" type="submit">Delete <i class="fa fa-trash-o "></i></button>
+                	</form> 
   					<?php 
   				}
   				else if ($_SESSION['isAdmin']){
   					?>
-  					<a class="btn btn-danger deletePost" href='deletePost.php?del=<?=$postId ?>'> Delete post</a>  
+  					<form class="delform" method="POST">
+                   		<input type="hidden" name="delbtn" value='<?= $postId ?>'/>
+                   		<button class="btn btn-danger deletePost delPost" type="submit">Delete <i class="fa fa-trash-o "></i></button>
+                	</form>
+  					
   					<?php 
   				}
   				?>
