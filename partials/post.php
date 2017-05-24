@@ -111,9 +111,9 @@ public function deletePost(){
         
 		$id = $_GET['del'];
 
-		 var_dump($id);
+		 // var_dump($id);
 		 //get the post with the right edit-id
-         var_dump($this->pdo);
+         // var_dump($this->pdo);
 		$statement = $this->pdo->prepare("
 			DELETE FROM post 
 			WHERE id = :id
