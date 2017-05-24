@@ -12,6 +12,7 @@ Vi fick till uppgift att skapa ett enklare CMS där olika användare kan skriva 
 * Sass * Gulp
 * Illustrator
 * XD
+* Photoshop
 
 ## CMS
 
@@ -20,7 +21,9 @@ Vi skapade en instagramliknande applikation där användare och administratörer
 ## Arbetsprocess
 Skapade ett repository.
 Beslutade att vi ville göra en applikation lik instagram.
-...
+Satte oss ner tillsammans och skapade databasen för projektet samt den grundläggande logiken för endel av sidan.
+Efter det strukturerade vi upp våran Trello board med olika tasks och delade upp arbetet.
+
 
 ## To do-lista
 * Förbättra kommentar logiken man kan bara lägga till kommentarer till inlägg inget annat.
